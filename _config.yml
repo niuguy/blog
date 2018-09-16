@@ -76,6 +76,12 @@ pagination_dir: page
 ## Themes: https://hexo.io/themes/
 ## theme: landscape
 theme: next
+plugins: hexo-generator-robotstxt
+robotstxt:
+  useragent: "*"
+  disallow: 
+    - /
+  sitemap: /sitemap.xml
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html

@@ -245,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/pandas/Pandas-How-to-import-csv/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/uncategorized/Pandas-How-to-import-CSV/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="T.Ben Wang">
@@ -264,7 +264,7 @@
         
           <h1 class="post-title" itemprop="name headline">
                 
-                <a class="post-title-link" href="/pandas/Pandas-How-to-import-csv/" itemprop="url">[Pandas] How to import csv</a></h1>
+                <a class="post-title-link" href="/uncategorized/Pandas-How-to-import-CSV/" itemprop="url">[Pandas]How to import CSV</a></h1>
         
 
         <div class="post-meta">
@@ -276,8 +276,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-14T21:55:38+01:00">
-                2018-09-14
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-16T16:30:37+01:00">
+                2018-09-16
               </time>
             
 
@@ -286,28 +286,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/pandas/" itemprop="url" rel="index">
-                    <span itemprop="name">pandas</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -338,7 +316,162 @@
       
         
           
-            <p>##</p>
+            <h3 id="Locate-the-file"><a href="#Locate-the-file" class="headerlink" title="Locate the file"></a>Locate the file</h3><p>There are two ways to locate the csv file, “absolute path” or “relative path”<br>e.g.<br>Absolute path:<br>“<code>/work/project/data/great.csv</code>“(Mac) or “<code>C:\work\project\data\great.csv</code>“(Windows)<br>Relative path:<br>“<code>data/greate.csv</code>“(Mac) or “<code>data\great.csv</code>“(Windows)</p>
+<h3 id="Read-with-pandas-read-csv"><a href="#Read-with-pandas-read-csv" class="headerlink" title="Read with pandas.read_csv()"></a>Read with pandas.read_csv()</h3><p>The result is a dataframe Object</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>company</th>
+<th>locate</th>
+<th>employees</th>
+<th>avenue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orange</td>
+<td>New York</td>
+<td>10000</td>
+<td>4000.0</td>
+</tr>
+<tr>
+<td>banana</td>
+<td>London</td>
+<td>2000</td>
+<td>1000.0</td>
+</tr>
+<tr>
+<td>pinch</td>
+<td>Paris</td>
+<td>4000</td>
+<td>5000.0</td>
+</tr>
+<tr>
+<td>pear</td>
+<td>Berlin</td>
+<td>3000</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<h3 id="No-infered-header"><a href="#No-infered-header" class="headerlink" title="No infered header"></a>No infered header</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, header= <span class="keyword">None</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company</td>
+<td>locate</td>
+<td>employees</td>
+<td>avenue</td>
+</tr>
+<tr>
+<td>orange</td>
+<td>New York</td>
+<td>10000</td>
+<td>4000</td>
+</tr>
+<tr>
+<td>banana</td>
+<td>London</td>
+<td>2000</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>pinch</td>
+<td>Paris</td>
+<td>4000</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>pear</td>
+<td>Berlin</td>
+<td>3000</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Filter-rows"><a href="#Filter-rows" class="headerlink" title="Filter rows"></a>Filter rows</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, skiprows=[<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>company</th>
+<th>locate</th>
+<th>employees</th>
+<th>avenue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orange</td>
+<td>New York</td>
+<td>10000</td>
+<td>4000</td>
+</tr>
+<tr>
+<td>banana</td>
+<td>London</td>
+<td>2000</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+<p>lambda is also welcomed</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, skiprows=<span class="keyword">lambda</span> x:x/<span class="number">2</span>==<span class="number">1</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>company</th>
+<th>locate</th>
+<th>employees</th>
+<th>avenue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orange</td>
+<td>New York</td>
+<td>10000</td>
+<td>4000.0</td>
+</tr>
+<tr>
+<td>pear</td>
+<td>Berlin</td>
+<td>3000</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Filter-columns-or-keep-wanted"><a href="#Filter-columns-or-keep-wanted" class="headerlink" title="Filter columns(or keep wanted)"></a>Filter columns(or keep wanted)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, usecols=[<span class="string">'company'</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orange</td>
+</tr>
+<tr>
+<td>banana</td>
+</tr>
+<tr>
+<td>pinch</td>
+</tr>
+<tr>
+<td>pear</td>
+</tr>
+</tbody>
+</table>
+<p>Other options refer <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html" target="_blank" rel="noopener">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html</a></p>
 
           
         
