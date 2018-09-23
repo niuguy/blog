@@ -2,9 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/uncategorized/Pandas-How-to-import-CSV/</loc>
+    <loc>http://yoursite.com/index.html</loc>
     
-    <lastmod>2018-09-16T16:34:03.073Z</lastmod>
+    <lastmod>2018-09-23T22:18:03.908Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/pandas/Pandas-Handle-missing-data/</loc>
+    
+    <lastmod>2018-09-23T22:15:39.816Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/Machine-Learning/What-is-Attention-and-how-to-use/</loc>
+    
+    <lastmod>2018-09-21T13:29:22.423Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/pandas/Pandas-How-to-select-data/</loc>
+    
+    <lastmod>2018-09-21T08:51:35.544Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/pandas/Pandas-How-to-drop-columns-rows/</loc>
+    
+    <lastmod>2018-09-18T20:49:18.318Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/pandas/Pandas-How-to-rename-columns/</loc>
+    
+    <lastmod>2018-09-17T22:03:37.104Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/pandas/Pandas-How-to-import-CSV/</loc>
+    
+    <lastmod>2018-09-16T16:37:10.211Z</lastmod>
     
   </url>
   

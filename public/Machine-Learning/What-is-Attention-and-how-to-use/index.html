@@ -79,21 +79,22 @@
 
 
 
-<meta name="description" content="Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning. How t">
+<meta name="description" content="IntroductionAttention or Bahdanau Attention is getting more and more interest in Neural Machine Translation(NMT)  and other sequence prediction research, in thi">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tensorflow101">
-<meta property="og:url" content="http://yoursite.com/tensorflow/Tensorflow101/index.html">
+<meta property="og:title" content="What is Attention and how to use">
+<meta property="og:url" content="http://yoursite.com/Machine-Learning/What-is-Attention-and-how-to-use/index.html">
 <meta property="og:site_name" content="T.Ben&#39;s Notes">
-<meta property="og:description" content="Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning. How to InstallIf you have ‘pip’, everything i">
+<meta property="og:description" content="IntroductionAttention or Bahdanau Attention is getting more and more interest in Neural Machine Translation(NMT)  and other sequence prediction research, in this article I will briefly introduce what">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/tensorflow/pic/101_01.png">
-<meta property="og:image" content="http://yoursite.com/tensorflow/pic/101_02.png">
-<meta property="og:image" content="http://yoursite.com/tensorflow/pic/101_03.png">
-<meta property="og:updated_time" content="2018-09-14T18:06:51.503Z">
+<meta property="og:image" content="https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2017/10/Example-of-an-Encoder-Decode-Network.png">
+<meta property="og:image" content="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_mechanism.jpg">
+<meta property="og:image" content="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_equation_0.jpg">
+<meta property="og:image" content="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_equation_1.jpg">
+<meta property="og:updated_time" content="2018-09-21T13:29:22.423Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tensorflow101">
-<meta name="twitter:description" content="Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning. How to InstallIf you have ‘pip’, everything i">
-<meta name="twitter:image" content="http://yoursite.com/tensorflow/pic/101_01.png">
+<meta name="twitter:title" content="What is Attention and how to use">
+<meta name="twitter:description" content="IntroductionAttention or Bahdanau Attention is getting more and more interest in Neural Machine Translation(NMT)  and other sequence prediction research, in this article I will briefly introduce what">
+<meta name="twitter:image" content="https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2017/10/Example-of-an-Encoder-Decode-Network.png">
 
 
 
@@ -123,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tensorflow/Tensorflow101/"/>
+  <link rel="canonical" href="http://yoursite.com/Machine-Learning/What-is-Attention-and-how-to-use/"/>
 
 
 
 
 
-  <title>Tensorflow101 | T.Ben's Notes</title>
+  <title>What is Attention and how to use | T.Ben's Notes</title>
   
 
 
@@ -249,7 +250,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/tensorflow/Tensorflow101/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Machine-Learning/What-is-Attention-and-how-to-use/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="T.Ben Wang">
@@ -266,7 +267,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Tensorflow101</h1>
+          <h1 class="post-title" itemprop="name headline">What is Attention and how to use</h1>
         
 
         <div class="post-meta">
@@ -278,8 +279,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T22:25:42+01:00">
-                2018-07-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-20T10:06:45+01:00">
+                2018-09-20
               </time>
             
 
@@ -301,8 +302,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tensorflow/" itemprop="url" rel="index">
-                    <span itemprop="name">tensorflow</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -338,42 +339,31 @@
       
 
       
-        <p>Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning.</p>
-<h3 id="How-to-Install"><a href="#How-to-Install" class="headerlink" title="How to Install"></a>How to Install</h3><p>If you have ‘pip’, everything is simple<br><code>pip install tensorflow</code></p>
-<h3 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h3><blockquote>
-<p>Graph  </p>
-</blockquote>
-<p>Graph is a fundamental concept in Tensorflow. Take ReLU computation as an example, the function of ReLU is </p>
-<p><em>h=ReLU(Wx+b)</em></p>
-<p>In the view of Tensorflow, the function looks like this</p>
-<p><img src="../pic/101_01.png" alt="relu_graph"></p>
-<blockquote>
-<p>Nodes  </p>
-</blockquote>
-<p>Variables such as <em>W</em> and <em>b</em> , placeholders such as x, are operations such as <em>MatMul</em>, <em>Add</em> are all nodes in the graph.</p>
-<blockquote>
-<p>Edges  </p>
-<p>The edges between nodes indicate the data which flow between nodes,  in tensorflow data is represented as “tensor” .  </p>
-</blockquote>
-<p>“tensor” + “flow”  = “tensorflow”</p>
-<h3 id="Codes"><a href="#Codes" class="headerlink" title="Codes"></a>Codes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line"></span><br><span class="line">	b = tf.Variable(tf.zeros((10,)))</span><br><span class="line">	W = tf.Variable(tf.random_uniform((20, 10), -1, 1))</span><br><span class="line"></span><br><span class="line">	x = tf.placeholder(tf.float32, (10, 20))</span><br><span class="line"></span><br><span class="line">	h = tf.nn.relu(tf.matmul(x, W) + b)</span><br><span class="line"></span><br><span class="line">	writer = tf.summary.FileWriter(&apos;./graphs&apos;, tf.get_default_graph())</span><br><span class="line"></span><br><span class="line">	with tf.Session() as sess:</span><br><span class="line">		sess.run(tf.global_variables_initializer())	</span><br><span class="line">		sess.run(h, &#123;x: np.random.random((10, 20))&#125;)</span><br><span class="line"></span><br><span class="line">	writer.close()</span><br></pre></td></tr></table></figure>
-<p>Here are the steps showed in the codes above.</p>
+        <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Attention or Bahdanau Attention is getting more and more interest in Neural Machine Translation(NMT)  and other sequence prediction research, in this article I will briefly introduce what is Attention mechanism, why important it is and how do we use it(in Tensorflow)</p>
+<h3 id="Why-Attention"><a href="#Why-Attention" class="headerlink" title="Why Attention"></a>Why Attention</h3><p>Attention is a mechanism derived from the seq-seq model which started the era of NMT,  in this <a href="https://arxiv.org/pdf/1409.3215.pdf" target="_blank" rel="noopener">paper</a> Sutskever proposed a novel RNN network called encode-decode network to tackle seq-seq prediction problems such as translation.</p>
+<p><img src="https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2017/10/Example-of-an-Encoder-Decode-Network.png" alt="Example of an Encoder-Decode Network, from &quot;Sequence to Sequence Learning with Neural Network&quot; 2014"></p>
+<p>The model performed well in many translation tasks, but it turned out to be limited to very long sequences. The reason lies in this network needs to be able to capture all information about the source sentence, that is easy to long sentences, especially those that are longer than sentences in the training corpus.</p>
+<p>Attention provides a solution to this problem, and its core idea is to focus on a relevant part of the source sequence on each step of the decoder.</p>
+<p>Maybe unexpectedly, Attention also benefits seq2seq model in other ways, the first one is that it helps with vanishing gradient problem by providing a shortcut to faraway states; the second one is that it gives some interpretability which I will illustrate in the following sector.</p>
+<h3 id="What-is-Attention"><a href="#What-is-Attention" class="headerlink" title="What is Attention"></a>What is Attention</h3><p>Attention is merely a context vector that provides a richer encoding of the source sequence. <strong>The vector is computed at every decoder time step.</strong></p>
+<p><img src="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_mechanism.jpg" alt="img"></p>
+<p>As illustrated in the figure above, the attention computation can be summarized into the following three steps:</p>
 <ol>
-<li>Create a graph using Variables and placeholders.</li>
-<li>Start a tensorflow session and deploy the graph into the session.</li>
-<li>Run the session, let the tensors flow.</li>
-<li>Write processing logs using tools such as tf.summary.</li>
+<li><p>Compute attention weights based on the current target hidden state and all source state(Figure 1)</p>
+</li>
+<li><p>The weighted average of the source states based on the attention weights are then computed, and the result is a context vector(Figure 2)</p>
+</li>
+<li><p>Context vector combined with the current target hidden state yields the attention vector(Figure 3)</p>
+<p>The attention vector is then fed to the next decoding step. </p>
+<p><img src="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_equation_0.jpg" alt="img"></p>
+<p>the score in Figure 1 is computed as follows:</p>
+<p><img src="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_equation_1.jpg" alt="img"></p>
+</li>
 </ol>
-<p>Session is the so called execution environment. It needs two parameters which are “Fetches” and “Feeds”.</p>
-<p><code>sess.run(fetches, feeds)</code></p>
-<p>Fetches: List of graph nodes</p>
-<p>Feeds: Dictionary mapping from graph nodes to concrete values.</p>
-<p>In the ReLU example, Fetches = h = tf.nn.relu(tf.matmul(x, W) + b) , Feeds = {x: np.random.random((10, 20))}</p>
-<p>It would be interesting to see what happened during the running time. TensorBoard is a convenient way.</p>
-<h2 id="TensorBoard-Result"><a href="#TensorBoard-Result" class="headerlink" title="TensorBoard Result"></a>TensorBoard Result</h2><p><img src="../pic/101_02.png" alt="tensorboard"></p>
-<p><img src="../pic/101_03.png" alt="tensorboard_relu"></p>
-<p>The Main Graph clearly shows how the tensor flows through the graph. In a complex machine learning program, the printed graph would be a convenient tool to increase confidence of the result.</p>
-<p>#Research</p>
+<p>Regarding the score,  the methods by which it is calculated lead to different performance. </p>
+<h3 id="Coding-Attention-with-Tensorflow"><a href="#Coding-Attention-with-Tensorflow" class="headerlink" title="Coding Attention with Tensorflow"></a>Coding Attention with Tensorflow</h3><p>Suppose we have already got an encoder-decoder implementation, what we need to do is trivial because Tensorflow has realized in advance the most of the attention building process(Figure 1-3).</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Transfer encoder_outputs to attention_states </span></span><br><span class="line">attention_states = tf.transpose(encoder_outputs, [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Apply existing attention mechanism </span></span><br><span class="line">attention_mechanism = tf.contrib.seq2seq.BahdanauAttention(</span><br><span class="line">    num_units, attention_states,</span><br><span class="line">    memory_sequence_length=source_sequence_length)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Feed to the decoder</span></span><br><span class="line">decoder_cell = tf.contrib.seq2seq.AttentionWrapper(</span><br><span class="line">    decoder_cell, attention_mechanism,</span><br><span class="line">    attention_layer_size=num_units)</span><br></pre></td></tr></table></figure>
+<p>The rest codes are mostly the same as standard encoder-decoder.</p>
 
       
     </div>
@@ -398,14 +388,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/pandas/Pandas-How-to-drop-columns-rows/" rel="next" title="[Pandas]How to drop columns/rows">
+                <i class="fa fa-chevron-left"></i> [Pandas]How to drop columns/rows
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/pandas/Pandas-How-to-import-CSV/" rel="prev" title="[Pandas]How to import CSV">
-                [Pandas]How to import CSV <i class="fa fa-chevron-right"></i>
+              <a href="/pandas/Pandas-How-to-select-data/" rel="prev" title="[Pandas]How to select data">
+                [Pandas]How to select data <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -551,7 +545,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-Install"><span class="nav-number">1.</span> <span class="nav-text">How to Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Concepts"><span class="nav-number">2.</span> <span class="nav-text">Basic Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Codes"><span class="nav-number">3.</span> <span class="nav-text">Codes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorBoard-Result"><span class="nav-number"></span> <span class="nav-text">TensorBoard Result</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-Attention"><span class="nav-number">2.</span> <span class="nav-text">Why Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Attention"><span class="nav-number">3.</span> <span class="nav-text">What is Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coding-Attention-with-Tensorflow"><span class="nav-number">4.</span> <span class="nav-text">Coding Attention with Tensorflow</span></a></li></ol></div>
             
 
           </div>

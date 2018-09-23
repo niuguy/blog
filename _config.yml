@@ -3,7 +3,7 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: T.Ben Wang
+title: T.Ben's Notes
 subtitle: Rock Data, Rock Life
 description: Anything about data and the world
 author: T.Ben Wang
@@ -50,7 +50,7 @@ highlight:
 # per_page: Posts displayed per page. (0 = disable pagination)
 # order_by: Posts order. (Order by date descending by default)
 index_generator:
-  path: ''
+  path: '/sources/_posts'
   per_page: 10
   order_by: -date
   
@@ -79,8 +79,7 @@ theme: next
 plugins: hexo-generator-robotstxt
 robotstxt:
   useragent: "*"
-  disallow: 
-    - /
+  Allow: /
   sitemap: /sitemap.xml
 
 # Deployment

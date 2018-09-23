@@ -79,21 +79,17 @@
 
 
 
-<meta name="description" content="Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning. How t">
+<meta name="description" content="Locate the fileThere are two ways to locate the csv file, “absolute path” or “relative path”e.g.Absolute path:“/work/project/data/great.csv“(Mac) or “C:\work\pr">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tensorflow101">
-<meta property="og:url" content="http://yoursite.com/tensorflow/Tensorflow101/index.html">
+<meta property="og:title" content="[Pandas]How to import CSV">
+<meta property="og:url" content="http://yoursite.com/pandas/Pandas-How-to-import-CSV/index.html">
 <meta property="og:site_name" content="T.Ben&#39;s Notes">
-<meta property="og:description" content="Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning. How to InstallIf you have ‘pip’, everything i">
+<meta property="og:description" content="Locate the fileThere are two ways to locate the csv file, “absolute path” or “relative path”e.g.Absolute path:“/work/project/data/great.csv“(Mac) or “C:\work\project\data\great.csv“(Windows)Relative p">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="http://yoursite.com/tensorflow/pic/101_01.png">
-<meta property="og:image" content="http://yoursite.com/tensorflow/pic/101_02.png">
-<meta property="og:image" content="http://yoursite.com/tensorflow/pic/101_03.png">
-<meta property="og:updated_time" content="2018-09-14T18:06:51.503Z">
+<meta property="og:updated_time" content="2018-09-16T16:37:10.211Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tensorflow101">
-<meta name="twitter:description" content="Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning. How to InstallIf you have ‘pip’, everything i">
-<meta name="twitter:image" content="http://yoursite.com/tensorflow/pic/101_01.png">
+<meta name="twitter:title" content="[Pandas]How to import CSV">
+<meta name="twitter:description" content="Locate the fileThere are two ways to locate the csv file, “absolute path” or “relative path”e.g.Absolute path:“/work/project/data/great.csv“(Mac) or “C:\work\project\data\great.csv“(Windows)Relative p">
 
 
 
@@ -123,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tensorflow/Tensorflow101/"/>
+  <link rel="canonical" href="http://yoursite.com/pandas/Pandas-How-to-import-CSV/"/>
 
 
 
 
 
-  <title>Tensorflow101 | T.Ben's Notes</title>
+  <title>[Pandas]How to import CSV | T.Ben's Notes</title>
   
 
 
@@ -249,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/tensorflow/Tensorflow101/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/pandas/Pandas-How-to-import-CSV/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="T.Ben Wang">
@@ -266,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Tensorflow101</h1>
+          <h1 class="post-title" itemprop="name headline">[Pandas]How to import CSV</h1>
         
 
         <div class="post-meta">
@@ -278,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T22:25:42+01:00">
-                2018-07-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-16T16:30:37+01:00">
+                2018-09-16
               </time>
             
 
@@ -301,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tensorflow/" itemprop="url" rel="index">
-                    <span itemprop="name">tensorflow</span>
+                  <a href="/categories/pandas/" itemprop="url" rel="index">
+                    <span itemprop="name">pandas</span>
                   </a>
                 </span>
 
@@ -338,42 +334,162 @@
       
 
       
-        <p>Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning.</p>
-<h3 id="How-to-Install"><a href="#How-to-Install" class="headerlink" title="How to Install"></a>How to Install</h3><p>If you have ‘pip’, everything is simple<br><code>pip install tensorflow</code></p>
-<h3 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h3><blockquote>
-<p>Graph  </p>
-</blockquote>
-<p>Graph is a fundamental concept in Tensorflow. Take ReLU computation as an example, the function of ReLU is </p>
-<p><em>h=ReLU(Wx+b)</em></p>
-<p>In the view of Tensorflow, the function looks like this</p>
-<p><img src="../pic/101_01.png" alt="relu_graph"></p>
-<blockquote>
-<p>Nodes  </p>
-</blockquote>
-<p>Variables such as <em>W</em> and <em>b</em> , placeholders such as x, are operations such as <em>MatMul</em>, <em>Add</em> are all nodes in the graph.</p>
-<blockquote>
-<p>Edges  </p>
-<p>The edges between nodes indicate the data which flow between nodes,  in tensorflow data is represented as “tensor” .  </p>
-</blockquote>
-<p>“tensor” + “flow”  = “tensorflow”</p>
-<h3 id="Codes"><a href="#Codes" class="headerlink" title="Codes"></a>Codes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line"></span><br><span class="line">	b = tf.Variable(tf.zeros((10,)))</span><br><span class="line">	W = tf.Variable(tf.random_uniform((20, 10), -1, 1))</span><br><span class="line"></span><br><span class="line">	x = tf.placeholder(tf.float32, (10, 20))</span><br><span class="line"></span><br><span class="line">	h = tf.nn.relu(tf.matmul(x, W) + b)</span><br><span class="line"></span><br><span class="line">	writer = tf.summary.FileWriter(&apos;./graphs&apos;, tf.get_default_graph())</span><br><span class="line"></span><br><span class="line">	with tf.Session() as sess:</span><br><span class="line">		sess.run(tf.global_variables_initializer())	</span><br><span class="line">		sess.run(h, &#123;x: np.random.random((10, 20))&#125;)</span><br><span class="line"></span><br><span class="line">	writer.close()</span><br></pre></td></tr></table></figure>
-<p>Here are the steps showed in the codes above.</p>
-<ol>
-<li>Create a graph using Variables and placeholders.</li>
-<li>Start a tensorflow session and deploy the graph into the session.</li>
-<li>Run the session, let the tensors flow.</li>
-<li>Write processing logs using tools such as tf.summary.</li>
-</ol>
-<p>Session is the so called execution environment. It needs two parameters which are “Fetches” and “Feeds”.</p>
-<p><code>sess.run(fetches, feeds)</code></p>
-<p>Fetches: List of graph nodes</p>
-<p>Feeds: Dictionary mapping from graph nodes to concrete values.</p>
-<p>In the ReLU example, Fetches = h = tf.nn.relu(tf.matmul(x, W) + b) , Feeds = {x: np.random.random((10, 20))}</p>
-<p>It would be interesting to see what happened during the running time. TensorBoard is a convenient way.</p>
-<h2 id="TensorBoard-Result"><a href="#TensorBoard-Result" class="headerlink" title="TensorBoard Result"></a>TensorBoard Result</h2><p><img src="../pic/101_02.png" alt="tensorboard"></p>
-<p><img src="../pic/101_03.png" alt="tensorboard_relu"></p>
-<p>The Main Graph clearly shows how the tensor flows through the graph. In a complex machine learning program, the printed graph would be a convenient tool to increase confidence of the result.</p>
-<p>#Research</p>
+        <h3 id="Locate-the-file"><a href="#Locate-the-file" class="headerlink" title="Locate the file"></a>Locate the file</h3><p>There are two ways to locate the csv file, “absolute path” or “relative path”<br>e.g.<br>Absolute path:<br>“<code>/work/project/data/great.csv</code>“(Mac) or “<code>C:\work\project\data\great.csv</code>“(Windows)<br>Relative path:<br>“<code>data/greate.csv</code>“(Mac) or “<code>data\great.csv</code>“(Windows)</p>
+<h3 id="Read-with-pandas-read-csv"><a href="#Read-with-pandas-read-csv" class="headerlink" title="Read with pandas.read_csv()"></a>Read with pandas.read_csv()</h3><p>The result is a dataframe Object</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>company</th>
+<th>locate</th>
+<th>employees</th>
+<th>avenue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orange</td>
+<td>New York</td>
+<td>10000</td>
+<td>4000.0</td>
+</tr>
+<tr>
+<td>banana</td>
+<td>London</td>
+<td>2000</td>
+<td>1000.0</td>
+</tr>
+<tr>
+<td>pinch</td>
+<td>Paris</td>
+<td>4000</td>
+<td>5000.0</td>
+</tr>
+<tr>
+<td>pear</td>
+<td>Berlin</td>
+<td>3000</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<h3 id="No-infered-header"><a href="#No-infered-header" class="headerlink" title="No infered header"></a>No infered header</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, header= <span class="keyword">None</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>0</th>
+<th>1</th>
+<th>2</th>
+<th>3</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>company</td>
+<td>locate</td>
+<td>employees</td>
+<td>avenue</td>
+</tr>
+<tr>
+<td>orange</td>
+<td>New York</td>
+<td>10000</td>
+<td>4000</td>
+</tr>
+<tr>
+<td>banana</td>
+<td>London</td>
+<td>2000</td>
+<td>1000</td>
+</tr>
+<tr>
+<td>pinch</td>
+<td>Paris</td>
+<td>4000</td>
+<td>5000</td>
+</tr>
+<tr>
+<td>pear</td>
+<td>Berlin</td>
+<td>3000</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Filter-rows"><a href="#Filter-rows" class="headerlink" title="Filter rows"></a>Filter rows</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, skiprows=[<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>company</th>
+<th>locate</th>
+<th>employees</th>
+<th>avenue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orange</td>
+<td>New York</td>
+<td>10000</td>
+<td>4000</td>
+</tr>
+<tr>
+<td>banana</td>
+<td>London</td>
+<td>2000</td>
+<td>1000</td>
+</tr>
+</tbody>
+</table>
+<p>lambda is also welcomed</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, skiprows=<span class="keyword">lambda</span> x:x/<span class="number">2</span>==<span class="number">1</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>company</th>
+<th>locate</th>
+<th>employees</th>
+<th>avenue</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orange</td>
+<td>New York</td>
+<td>10000</td>
+<td>4000.0</td>
+</tr>
+<tr>
+<td>pear</td>
+<td>Berlin</td>
+<td>3000</td>
+<td>NaN</td>
+</tr>
+</tbody>
+</table>
+<h3 id="Filter-columns-or-keep-wanted"><a href="#Filter-columns-or-keep-wanted" class="headerlink" title="Filter columns(or keep wanted)"></a>Filter columns(or keep wanted)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, usecols=[<span class="string">'company'</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th>company</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>orange</td>
+</tr>
+<tr>
+<td>banana</td>
+</tr>
+<tr>
+<td>pinch</td>
+</tr>
+<tr>
+<td>pear</td>
+</tr>
+</tbody>
+</table>
+<p>Other options refer <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html" target="_blank" rel="noopener">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html</a></p>
 
       
     </div>
@@ -398,14 +514,18 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/tensorflow/Tensorflow101/" rel="next" title="Tensorflow101">
+                <i class="fa fa-chevron-left"></i> Tensorflow101
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/pandas/Pandas-How-to-import-CSV/" rel="prev" title="[Pandas]How to import CSV">
-                [Pandas]How to import CSV <i class="fa fa-chevron-right"></i>
+              <a href="/pandas/Pandas-How-to-rename-columns/" rel="prev" title="[Pandas]How to rename columns">
+                [Pandas]How to rename columns <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -551,7 +671,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-Install"><span class="nav-number">1.</span> <span class="nav-text">How to Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Concepts"><span class="nav-number">2.</span> <span class="nav-text">Basic Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Codes"><span class="nav-number">3.</span> <span class="nav-text">Codes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorBoard-Result"><span class="nav-number"></span> <span class="nav-text">TensorBoard Result</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Locate-the-file"><span class="nav-number">1.</span> <span class="nav-text">Locate the file</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Read-with-pandas-read-csv"><span class="nav-number">2.</span> <span class="nav-text">Read with pandas.read_csv()</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#No-infered-header"><span class="nav-number">3.</span> <span class="nav-text">No infered header</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Filter-rows"><span class="nav-number">4.</span> <span class="nav-text">Filter rows</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Filter-columns-or-keep-wanted"><span class="nav-number">5.</span> <span class="nav-text">Filter columns(or keep wanted)</span></a></li></ol></div>
             
 
           </div>

@@ -79,16 +79,17 @@
 
 
 
-<meta name="description" content="Anything about data and the world">
+<meta name="description" content="Machine Learning What is Attention and how to use   Pandas How-to [Pandas]How to select data [Pandas]How to import CSV [Pandas]How to rename columns [Pandas]How">
 <meta property="og:type" content="website">
-<meta property="og:title" content="T.Ben Wang">
+<meta property="og:title" content="Notes on Data Science">
 <meta property="og:url" content="http://yoursite.com/index.html">
-<meta property="og:site_name" content="T.Ben Wang">
-<meta property="og:description" content="Anything about data and the world">
+<meta property="og:site_name" content="T.Ben&#39;s Notes">
+<meta property="og:description" content="Machine Learning What is Attention and how to use   Pandas How-to [Pandas]How to select data [Pandas]How to import CSV [Pandas]How to rename columns [Pandas]How to drop columns rows [Pandas]Handle mis">
 <meta property="og:locale" content="en">
+<meta property="og:updated_time" content="2018-09-23T22:18:03.908Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="T.Ben Wang">
-<meta name="twitter:description" content="Anything about data and the world">
+<meta name="twitter:title" content="Notes on Data Science">
+<meta name="twitter:description" content="Machine Learning What is Attention and how to use   Pandas How-to [Pandas]How to select data [Pandas]How to import CSV [Pandas]How to rename columns [Pandas]How to drop columns rows [Pandas]Handle mis">
 
 
 
@@ -124,7 +125,7 @@
 
 
 
-  <title>T.Ben Wang</title>
+  <title>Notes on Data Science | T.Ben's Notes</title>
   
 
 
@@ -152,8 +153,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-  page-home">
+  <div class="container sidebar-position-left page-post-detail">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -164,7 +164,7 @@
     <div class="custom-logo-site-title">
       <a href="/"  class="brand" rel="start">
         <span class="logo-line-before"><i></i></span>
-        <span class="site-title">T.Ben Wang</span>
+        <span class="site-title">T.Ben's Notes</span>
         <span class="logo-line-after"><i></i></span>
       </a>
     </div>
@@ -189,10 +189,10 @@
     <ul id="menu" class="menu">
       
         
-        <li class="menu-item menu-item-portfolios">
-          <a href="/categories/portfolios" rel="section">
+        <li class="menu-item menu-item-machine-learning">
+          <a href="/categories/machine-learning" rel="section">
             
-            Portfolios
+            Machine Learning
           </a>
         </li>
       
@@ -230,463 +230,52 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/uncategorized/Pandas-How-to-import-CSV/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="T.Ben Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T.Ben Wang">
-    </span>
-
     
+    
+    <div class="post-block page">
       <header class="post-header">
 
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/uncategorized/Pandas-How-to-import-CSV/" itemprop="url">[Pandas]How to import CSV</a></h1>
-        
+	<h1 class="post-title" itemprop="name headline">Notes on Data Science</h1>
 
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-16T16:30:37+01:00">
-                2018-09-16
-              </time>
-            
 
-            
 
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
+</header>
 
       
       
-
       
+      <div class="post-body">
         
-          
-            <h3 id="Locate-the-file"><a href="#Locate-the-file" class="headerlink" title="Locate the file"></a>Locate the file</h3><p>There are two ways to locate the csv file, “absolute path” or “relative path”<br>e.g.<br>Absolute path:<br>“<code>/work/project/data/great.csv</code>“(Mac) or “<code>C:\work\project\data\great.csv</code>“(Windows)<br>Relative path:<br>“<code>data/greate.csv</code>“(Mac) or “<code>data\great.csv</code>“(Windows)</p>
-<h3 id="Read-with-pandas-read-csv"><a href="#Read-with-pandas-read-csv" class="headerlink" title="Read with pandas.read_csv()"></a>Read with pandas.read_csv()</h3><p>The result is a dataframe Object</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>company</th>
-<th>locate</th>
-<th>employees</th>
-<th>avenue</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>orange</td>
-<td>New York</td>
-<td>10000</td>
-<td>4000.0</td>
-</tr>
-<tr>
-<td>banana</td>
-<td>London</td>
-<td>2000</td>
-<td>1000.0</td>
-</tr>
-<tr>
-<td>pinch</td>
-<td>Paris</td>
-<td>4000</td>
-<td>5000.0</td>
-</tr>
-<tr>
-<td>pear</td>
-<td>Berlin</td>
-<td>3000</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-<h3 id="No-infered-header"><a href="#No-infered-header" class="headerlink" title="No infered header"></a>No infered header</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, header= <span class="keyword">None</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>0</th>
-<th>1</th>
-<th>2</th>
-<th>3</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>company</td>
-<td>locate</td>
-<td>employees</td>
-<td>avenue</td>
-</tr>
-<tr>
-<td>orange</td>
-<td>New York</td>
-<td>10000</td>
-<td>4000</td>
-</tr>
-<tr>
-<td>banana</td>
-<td>London</td>
-<td>2000</td>
-<td>1000</td>
-</tr>
-<tr>
-<td>pinch</td>
-<td>Paris</td>
-<td>4000</td>
-<td>5000</td>
-</tr>
-<tr>
-<td>pear</td>
-<td>Berlin</td>
-<td>3000</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Filter-rows"><a href="#Filter-rows" class="headerlink" title="Filter rows"></a>Filter rows</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, skiprows=[<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>company</th>
-<th>locate</th>
-<th>employees</th>
-<th>avenue</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>orange</td>
-<td>New York</td>
-<td>10000</td>
-<td>4000</td>
-</tr>
-<tr>
-<td>banana</td>
-<td>London</td>
-<td>2000</td>
-<td>1000</td>
-</tr>
-</tbody>
-</table>
-<p>lambda is also welcomed</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, skiprows=<span class="keyword">lambda</span> x:x/<span class="number">2</span>==<span class="number">1</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>company</th>
-<th>locate</th>
-<th>employees</th>
-<th>avenue</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>orange</td>
-<td>New York</td>
-<td>10000</td>
-<td>4000.0</td>
-</tr>
-<tr>
-<td>pear</td>
-<td>Berlin</td>
-<td>3000</td>
-<td>NaN</td>
-</tr>
-</tbody>
-</table>
-<h3 id="Filter-columns-or-keep-wanted"><a href="#Filter-columns-or-keep-wanted" class="headerlink" title="Filter columns(or keep wanted)"></a>Filter columns(or keep wanted)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, usecols=[<span class="string">'company'</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
-<table>
-<thead>
-<tr>
-<th>company</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>orange</td>
-</tr>
-<tr>
-<td>banana</td>
-</tr>
-<tr>
-<td>pinch</td>
-</tr>
-<tr>
-<td>pear</td>
-</tr>
-</tbody>
-</table>
-<p>Other options refer <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html" target="_blank" rel="noopener">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html</a></p>
+        
+          <h3 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h3><ul>
+<li><a href="/Machine-Learning/What-is-Attention-and-how-to-use/">What is Attention and how to use</a></li>
+</ul>
+<hr>
+<h3 id="Pandas-How-to"><a href="#Pandas-How-to" class="headerlink" title="Pandas How-to"></a>Pandas How-to</h3><ul>
+<li><a href="/pandas/Pandas-How-to-select-data/">[Pandas]How to select data</a></li>
+<li><a href="/pandas/Pandas-How-to-import-CSV/">[Pandas]How to import CSV</a></li>
+<li><a href="/pandas/Pandas-How-to-rename-columns/">[Pandas]How to rename columns</a></li>
+<li><a href="/pandas/Pandas-How-to-drop-columns-rows/">[Pandas]How to drop columns rows</a></li>
+<li><a href="/pandas/Pandas-Handle-missing-data/">[Pandas]Handle missing data</a></li>
+</ul>
+<hr>
+<h3 id="Tensorflow-How-to"><a href="#Tensorflow-How-to" class="headerlink" title="Tensorflow How-to"></a>Tensorflow How-to</h3><ul>
+<li><a href="/tensorflow/Tensorflow101/">Tensorflow101</a></li>
+</ul>
 
-          
         
+      </div>
+      
+      
       
     </div>
     
     
     
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
   </div>
-  
-  
-  
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-  
-  
-  
-  <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/tensorflow/Tensorflow101/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="T.Ben Wang">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="T.Ben Wang">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/tensorflow/Tensorflow101/" itemprop="url">Tensorflow101</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Posted on</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T22:25:42+01:00">
-                2018-07-10
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">In</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tensorflow/" itemprop="url" rel="index">
-                    <span itemprop="name">tensorflow</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    
-    
-    
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-            <p>Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning.</p>
-<h3 id="How-to-Install"><a href="#How-to-Install" class="headerlink" title="How to Install"></a>How to Install</h3><p>If you have ‘pip’, everything is simple<br><code>pip install tensorflow</code></p>
-<h3 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h3><blockquote>
-<p>Graph  </p>
-</blockquote>
-<p>Graph is a fundamental concept in Tensorflow. Take ReLU computation as an example, the function of ReLU is </p>
-<p><em>h=ReLU(Wx+b)</em></p>
-<p>In the view of Tensorflow, the function looks like this</p>
-<p><img src="../pic/101_01.png" alt="relu_graph"></p>
-<blockquote>
-<p>Nodes  </p>
-</blockquote>
-<p>Variables such as <em>W</em> and <em>b</em> , placeholders such as x, are operations such as <em>MatMul</em>, <em>Add</em> are all nodes in the graph.</p>
-<blockquote>
-<p>Edges  </p>
-<p>The edges between nodes indicate the data which flow between nodes,  in tensorflow data is represented as “tensor” .  </p>
-</blockquote>
-<p>“tensor” + “flow”  = “tensorflow”</p>
-<h3 id="Codes"><a href="#Codes" class="headerlink" title="Codes"></a>Codes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line"></span><br><span class="line">	b = tf.Variable(tf.zeros((10,)))</span><br><span class="line">	W = tf.Variable(tf.random_uniform((20, 10), -1, 1))</span><br><span class="line"></span><br><span class="line">	x = tf.placeholder(tf.float32, (10, 20))</span><br><span class="line"></span><br><span class="line">	h = tf.nn.relu(tf.matmul(x, W) + b)</span><br><span class="line"></span><br><span class="line">	writer = tf.summary.FileWriter(&apos;./graphs&apos;, tf.get_default_graph())</span><br><span class="line"></span><br><span class="line">	with tf.Session() as sess:</span><br><span class="line">		sess.run(tf.global_variables_initializer())	</span><br><span class="line">		sess.run(h, &#123;x: np.random.random((10, 20))&#125;)</span><br><span class="line"></span><br><span class="line">	writer.close()</span><br></pre></td></tr></table></figure>
-<p>Here are the steps showed in the codes above.</p>
-<ol>
-<li>Create a graph using Variables and placeholders.</li>
-<li>Start a tensorflow session and deploy the graph into the session.</li>
-<li>Run the session, let the tensors flow.</li>
-<li>Write processing logs using tools such as tf.summary.</li>
-</ol>
-<p>Session is the so called execution environment. It needs two parameters which are “Fetches” and “Feeds”.</p>
-<p><code>sess.run(fetches, feeds)</code></p>
-<p>Fetches: List of graph nodes</p>
-<p>Feeds: Dictionary mapping from graph nodes to concrete values.</p>
-<p>In the ReLU example, Fetches = h = tf.nn.relu(tf.matmul(x, W) + b) , Feeds = {x: np.random.random((10, 20))}</p>
-<p>It would be interesting to see what happened during the running time. TensorBoard is a convenient way.</p>
-<h2 id="TensorBoard-Result"><a href="#TensorBoard-Result" class="headerlink" title="TensorBoard Result"></a>TensorBoard Result</h2><p><img src="../pic/101_02.png" alt="tensorboard"></p>
-<p><img src="../pic/101_03.png" alt="tensorboard_relu"></p>
-<p>The Main Graph clearly shows how the tensor flows through the graph. In a complex machine learning program, the printed graph would be a convenient tool to increase confidence of the result.</p>
-<p>#Research</p>
-
-          
-        
-      
-    </div>
-    
-    
-    
-
-    
-
-    
-
-    
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </div>
-  
-  
-  
-  </article>
-
-
-    
-  </section>
-
-  
 
 
           </div>
@@ -694,6 +283,10 @@
 
 
           
+
+  
+
+
 
         </div>
         
@@ -714,8 +307,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
 
-      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
+      <section class="site-overview-wrap sidebar-panel">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -730,7 +332,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -741,7 +343,7 @@
               
               <div class="site-state-item site-state-categories">
                 <a href="/categories/index.html">
-                  <span class="site-state-item-count">2</span>
+                  <span class="site-state-item-count">3</span>
                   <span class="site-state-item-name">categories</span>
                 </a>
               </div>
@@ -788,6 +390,22 @@
         </div>
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">Machine Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandas-How-to"><span class="nav-number">2.</span> <span class="nav-text">Pandas How-to</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tensorflow-How-to"><span class="nav-number">3.</span> <span class="nav-text">Tensorflow How-to</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -921,6 +539,10 @@
   
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
 
   
 
