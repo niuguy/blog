@@ -23,3 +23,5 @@ tags:
 ### Tensorflow How-to
 
 * [Tensorflow101](/tensorflow/Tensorflow101/)
+* [What is tf.data and how to use](/tensorflow/What-is-tf-data-and-how-to-use/)
+

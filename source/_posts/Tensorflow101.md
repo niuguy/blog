@@ -23,7 +23,7 @@ Graph is a fundamental concept in Tensorflow. Take ReLU computation as an exampl
 
 In the view of Tensorflow, the function looks like this
 
-![relu_graph](../pic/101_01.png)
+![relu_graph](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_01.png)
 
 > Nodes  
 
@@ -63,7 +63,7 @@ if __name__ == '__main__':
 
 ```
 
-Here are the steps showed in the codes above.
+Here are the steps described in the above codes.
 
 1. Create a graph using Variables and placeholders.
 2. Start a tensorflow session and deploy the graph into the session.
@@ -80,17 +80,16 @@ Feeds: Dictionary mapping from graph nodes to concrete values.
 
 In the ReLU example, Fetches = h = tf.nn.relu(tf.matmul(x, W) + b) , Feeds = {x: np.random.random((10, 20))}
 
-It would be interesting to see what happened during the running time. TensorBoard is a convenient way.
+It would be interesting to see what happened during the running time. We can try TensorBoard.
 
 
 
 ## TensorBoard Result
 
-![tensorboard](../pic/101_02.png)
+![tensorboard](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_02.png)
 
 
-![tensorboard_relu](../pic/101_03.png)
+![tensorboard_relu](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_03.png)
 
-The Main Graph clearly shows how the tensor flows through the graph. In a complex machine learning program, the printed graph would be a convenient tool to increase confidence of the result.
+The Main Graph clearly shows how the tensor flows through the graph. In a complex machine learning program, the printed diagram is a convenient tool to increase the confidence of the result.
 
-#Research
