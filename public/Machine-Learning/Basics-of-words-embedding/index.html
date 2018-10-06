@@ -79,21 +79,19 @@
 
 
 
-<meta name="description" content="Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning. How t">
+<meta name="description" content="Why embeddingNatural language processing systems traditionally treat words as discrete atomic symbols, and this may lead to some obstacles in word preprocessing">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Tensorflow101">
-<meta property="og:url" content="http://yoursite.com/tensorflow/Tensorflow101/index.html">
+<meta property="og:title" content="Basics of words embedding">
+<meta property="og:url" content="http://yoursite.com/Machine-Learning/Basics-of-words-embedding/index.html">
 <meta property="og:site_name" content="T.Ben&#39;s Notes">
-<meta property="og:description" content="Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning. How to InstallIf you have ‘pip’, everything i">
+<meta property="og:description" content="Why embeddingNatural language processing systems traditionally treat words as discrete atomic symbols, and this may lead to some obstacles in word preprocessing:  These encodings provide no useful inf">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_01.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_02.png">
-<meta property="og:image" content="https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_03.png">
-<meta property="og:updated_time" content="2018-09-26T19:09:32.298Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/niuguy/niuguy.github.io/master/pic/skip_gram.npg.png">
+<meta property="og:updated_time" content="2018-10-04T21:31:24.832Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Tensorflow101">
-<meta name="twitter:description" content="Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning. How to InstallIf you have ‘pip’, everything i">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_01.png">
+<meta name="twitter:title" content="Basics of words embedding">
+<meta name="twitter:description" content="Why embeddingNatural language processing systems traditionally treat words as discrete atomic symbols, and this may lead to some obstacles in word preprocessing:  These encodings provide no useful inf">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/niuguy/niuguy.github.io/master/pic/skip_gram.npg.png">
 
 
 
@@ -123,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tensorflow/Tensorflow101/"/>
+  <link rel="canonical" href="http://yoursite.com/Machine-Learning/Basics-of-words-embedding/"/>
 
 
 
 
 
-  <title>Tensorflow101 | T.Ben's Notes</title>
+  <title>Basics of words embedding | T.Ben's Notes</title>
   
 
 
@@ -249,7 +247,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/tensorflow/Tensorflow101/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Machine-Learning/Basics-of-words-embedding/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="T.Ben Wang">
@@ -266,7 +264,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Tensorflow101</h1>
+          <h1 class="post-title" itemprop="name headline">Basics of words embedding</h1>
         
 
         <div class="post-meta">
@@ -278,8 +276,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-07-10T22:25:42+01:00">
-                2018-07-10
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-01T11:14:28+01:00">
+                2018-10-01
               </time>
             
 
@@ -301,8 +299,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/tensorflow/" itemprop="url" rel="index">
-                    <span itemprop="name">tensorflow</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -319,9 +317,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/tensorflow/Tensorflow101/#comments" itemprop="discussionUrl">
+                <a href="/Machine-Learning/Basics-of-words-embedding/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/tensorflow/Tensorflow101/" itemprop="commentCount"></span>
+                        data-disqus-identifier="/Machine-Learning/Basics-of-words-embedding/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -349,41 +347,34 @@
       
 
       
-        <p>Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning.</p>
-<h3 id="How-to-Install"><a href="#How-to-Install" class="headerlink" title="How to Install"></a>How to Install</h3><p>If you have ‘pip’, everything is simple<br><code>pip install tensorflow</code></p>
-<h3 id="Basic-Concepts"><a href="#Basic-Concepts" class="headerlink" title="Basic Concepts"></a>Basic Concepts</h3><blockquote>
-<p>Graph  </p>
-</blockquote>
-<p>Graph is a fundamental concept in Tensorflow. Take ReLU computation as an example, the function of ReLU is </p>
-<p><em>h=ReLU(Wx+b)</em></p>
-<p>In the view of Tensorflow, the function looks like this</p>
-<p><img src="https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_01.png" alt="relu_graph"></p>
-<blockquote>
-<p>Nodes  </p>
-</blockquote>
-<p>Variables such as <em>W</em> and <em>b</em> , placeholders such as x, are operations such as <em>MatMul</em>, <em>Add</em> are all nodes in the graph.</p>
-<blockquote>
-<p>Edges  </p>
-<p>The edges between nodes indicate the data which flow between nodes,  in tensorflow data is represented as “tensor” .  </p>
-</blockquote>
-<p>“tensor” + “flow”  = “tensorflow”</p>
-<h3 id="Codes"><a href="#Codes" class="headerlink" title="Codes"></a>Codes</h3><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">import tensorflow as tf</span><br><span class="line">import numpy as np</span><br><span class="line"></span><br><span class="line">if __name__ == &apos;__main__&apos;:</span><br><span class="line"></span><br><span class="line">	b = tf.Variable(tf.zeros((10,)))</span><br><span class="line">	W = tf.Variable(tf.random_uniform((20, 10), -1, 1))</span><br><span class="line"></span><br><span class="line">	x = tf.placeholder(tf.float32, (10, 20))</span><br><span class="line"></span><br><span class="line">	h = tf.nn.relu(tf.matmul(x, W) + b)</span><br><span class="line"></span><br><span class="line">	writer = tf.summary.FileWriter(&apos;./graphs&apos;, tf.get_default_graph())</span><br><span class="line"></span><br><span class="line">	with tf.Session() as sess:</span><br><span class="line">		sess.run(tf.global_variables_initializer())	</span><br><span class="line">		sess.run(h, &#123;x: np.random.random((10, 20))&#125;)</span><br><span class="line"></span><br><span class="line">	writer.close()</span><br></pre></td></tr></table></figure>
-<p>Here are the steps described in the above codes.</p>
+        <h3 id="Why-embedding"><a href="#Why-embedding" class="headerlink" title="Why embedding"></a>Why embedding</h3><p>Natural language processing systems traditionally treat words as discrete atomic symbols, and this may lead to some obstacles in word preprocessing:</p>
 <ol>
-<li>Create a graph using Variables and placeholders.</li>
-<li>Start a tensorflow session and deploy the graph into the session.</li>
-<li>Run the session, let the tensors flow.</li>
-<li>Write processing logs using tools such as tf.summary.</li>
+<li>These encodings provide no useful information regarding the <strong>relationships</strong> that may exist between the individual symbols.</li>
+<li>Discrete ids furthermore lead to <strong>data sparsity</strong>. We may need more data to train statistical models successfully.</li>
 </ol>
-<p>Session is the so called execution environment. It needs two parameters which are “Fetches” and “Feeds”.</p>
-<p><code>sess.run(fetches, feeds)</code></p>
-<p>Fetches: List of graph nodes</p>
-<p>Feeds: Dictionary mapping from graph nodes to concrete values.</p>
-<p>In the ReLU example, Fetches = h = tf.nn.relu(tf.matmul(x, W) + b) , Feeds = {x: np.random.random((10, 20))}</p>
-<p>It would be interesting to see what happened during the running time. We can try TensorBoard.</p>
-<h2 id="TensorBoard-Result"><a href="#TensorBoard-Result" class="headerlink" title="TensorBoard Result"></a>TensorBoard Result</h2><p><img src="https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_02.png" alt="tensorboard"></p>
-<p><img src="https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_03.png" alt="tensorboard_relu"></p>
-<p>The Main Graph clearly shows how the tensor flows through the graph. In a complex machine learning program, the printed diagram is a convenient tool to increase the confidence of the result.</p>
+<p>To address these two problems, word embeddings provide a solution to  represent words and their relative meanings densely.</p>
+<h3 id="Overview"><a href="#Overview" class="headerlink" title="Overview"></a>Overview</h3><p>Embedding derives from <a href="https://en.wikipedia.org/wiki/Vector_space_model" target="_blank" rel="noopener">Vector Space Models(VSMs)</a>,  one of its well-known schemes is <a href="https://en.wikipedia.org/wiki/Tf%E2%80%93idf" target="_blank" rel="noopener">Tf-Idf</a> weights. VSMs can transfer text documents into vectors of identifies, the fundamental theory they rely on is Distribution hypothesis which states that <strong>words that appear in the same contexts share semantic meaning</strong>. </p>
+<p>VSMs have two main approaches: Count-based methods and predictive methods.  Count-based methods compute the statistics of how often some word co-occurs with its neighbor words in a large text corpus and then map these count-statistics down to a small, dense vector for each word. Predictive models directly try to predict a word from its neighbors regarding learned small, dense <em>embedding vectors</em> (considered parameters of the model).</p>
+<p>Among all the embedding methods, Glove(Count-based) and Word2vec(Predictive) are the most popular.</p>
+<h3 id="Count-based-Embedding"><a href="#Count-based-Embedding" class="headerlink" title="Count-based Embedding"></a>Count-based Embedding</h3><p>GloVe is an <strong>unsupervised learning algorithm</strong> for obtaining vector representations for words.  The main intuition underlying the model is the simple observation that ratios of word-word co-occurrence probabilities have the potential for encoding some form of meaning. It is designed to enable the vector differences between words  to capture as much as possible the meaning specified by the juxtaposition of two words.</p>
+<p>The <a href="https://nlp.stanford.edu/projects/glove/" target="_blank" rel="noopener">project page of glove</a>  gives detailed information of how glove vectors are computed and provides several pretrained glove word vectors. As the article highlighted , glove was developed with the following consideration:</p>
+<blockquote>
+<p>The Euclidean distance (or cosine similarity) between two word vectors provides an effective method for measuring the linguistic or semantic similarity of the corresponding words.</p>
+<p>Similarity metrics used for nearest neighbor may be problematic when two given words almost always exhibit more intricate relationships than can be captured by a single number. </p>
+<p>It is necessary for a model to associate more than a single number to the word pair.</p>
+</blockquote>
+<p>Training GloVe model on a large corpus can be extremely time consuming, but it is a one-time cost.  <a href="https://nlp.stanford.edu/projects/glove/" target="_blank" rel="noopener">project page of glove</a> also provides some pre-trained word vectors, e.g. glove.6B.zip is word vectors trained from words on Wikipedia, take the first line of this file for example</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">the -0.038194 -0.24487 0.72812 -0.39961 0.083172 0.043953 -0.39141 0.3344 -0.57545 0.087459 0.28787 -0.06731 0.30906 -0.26384 -0.13231 -0.20757 0.33395 -0.33848 -0.31743 ...</span><br></pre></td></tr></table></figure>
+<p>‘’the’’ is followed by 100 floats which are the vector values of this word</p>
+<p>We can build a dict whose key is words and value is their glove vector</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">embeddings_index = dict()</span><br><span class="line">f = open(<span class="string">'./glove.6B.100d.txt'</span>)</span><br><span class="line"><span class="keyword">for</span> line <span class="keyword">in</span> f:</span><br><span class="line">    values = line.split()</span><br><span class="line">    word = values[<span class="number">0</span>]</span><br><span class="line">    coefs = asarray(values[<span class="number">1</span>:], dtype = <span class="string">'float32'</span>)</span><br><span class="line">    embeddings_index[word] = coefs</span><br><span class="line">f.close()</span><br></pre></td></tr></table></figure>
+<p>When we need to build a embedding layer , we just look up the vectors  for input words in the dict.</p>
+<h3 id="Word2vec"><a href="#Word2vec" class="headerlink" title="Word2vec"></a>Word2vec</h3><p>Word2vec, as illustrated in the first part,  is a predictive model for word embedding. There are two main branches of Word2vec, the Continuous Bag-of-Words model (CBOW) and the Skip-Gram model. The two models predict words in a different direction, CBOW predicts target words (e.g. ‘mat’) from source context words (‘the cat sits on the’), while the skip-gram does the inverse and predicts source context-words from the target words. Therefore,  CBOW treats an entire context as one observation and is compatible with smaller datasets, while skip-gram treats each context-target pair as a new observation and play better with larger datasets. </p>
+<p>We will focus on skip-gram as we need to deal with large datasets in most time. Here is the structure of this model.</p>
+<p><img src="https://raw.githubusercontent.com/niuguy/niuguy.github.io/master/pic/skip_gram.npg.png" alt="Skip-gram Neural Network Architecture"></p>
+<p>The Skip-gram model is trained like this,  Given a specific word in the middle of a sentence (the input word), look at the words nearby and pick one at random. The network is going to tell us the probability for every word in our vocabulary of being the “nearby word” that we chose. The output probabilities are going to relate to how likely it is find each vocabulary word nearby our input word. </p>
+<p>The coding example of how to build and train the Skip-gram model can be found <a href="https://github.com/tensorflow/tensorflow/blob/master/tensorflow/examples/tutorials/word2vec/word2vec_basic.py" target="_blank" rel="noopener">here</a></p>
+<p>Next post I will try to use embedding to solve an interesting real world problem.</p>
 
       
     </div>
@@ -408,15 +399,15 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
+              <a href="/tensorflow/What-is-tf-data-and-how-to-use/" rel="next" title="What is tf.data and how to use">
+                <i class="fa fa-chevron-left"></i> What is tf.data and how to use
+              </a>
+            
           </div>
 
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/pandas/Pandas-How-to-import-CSV/" rel="prev" title="[Pandas]How to import CSV">
-                [Pandas]How to import CSV <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -571,7 +562,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#How-to-Install"><span class="nav-number">1.</span> <span class="nav-text">How to Install</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Basic-Concepts"><span class="nav-number">2.</span> <span class="nav-text">Basic Concepts</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Codes"><span class="nav-number">3.</span> <span class="nav-text">Codes</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#TensorBoard-Result"><span class="nav-number"></span> <span class="nav-text">TensorBoard Result</span></a></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-embedding"><span class="nav-number">1.</span> <span class="nav-text">Why embedding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Overview"><span class="nav-number">2.</span> <span class="nav-text">Overview</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Count-based-Embedding"><span class="nav-number">3.</span> <span class="nav-text">Count-based Embedding</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Word2vec"><span class="nav-number">4.</span> <span class="nav-text">Word2vec</span></a></li></ol></div>
             
 
           </div>
@@ -734,9 +725,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/tensorflow/Tensorflow101/';
-          this.page.identifier = '/tensorflow/Tensorflow101/';
-          this.page.title = 'Tensorflow101';
+          this.page.url = 'http://yoursite.com/Machine-Learning/Basics-of-words-embedding/';
+          this.page.identifier = '/Machine-Learning/Basics-of-words-embedding/';
+          this.page.title = 'Basics of words embedding';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tbenwang-com.disqus.com/embed.js';

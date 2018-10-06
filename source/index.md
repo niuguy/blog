@@ -7,6 +7,7 @@ tags:
 ### Machine Learning
 
 * [What is Attention and how to use](/Machine-Learning/What-is-Attention-and-how-to-use/)
+* [Basics of words embedding](/Machine-Learning/Basics-of-words-embedding/)
 
 --------
 
