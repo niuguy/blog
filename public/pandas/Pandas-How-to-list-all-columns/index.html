@@ -79,22 +79,17 @@
 
 
 
-<meta name="description" content="IntroductionAttention or Bahdanau Attention is getting more and more interest in Neural Machine Translation(NMT)  and other sequence prediction research, in thi">
+<meta name="description" content="1list(dataframe.columns.values)">
 <meta property="og:type" content="article">
-<meta property="og:title" content="What is Attention and how to use">
-<meta property="og:url" content="http://yoursite.com/Machine-Learning/What-is-Attention-and-how-to-use/index.html">
+<meta property="og:title" content="[Pandas]How to list all columns">
+<meta property="og:url" content="http://yoursite.com/pandas/Pandas-How-to-list-all-columns/index.html">
 <meta property="og:site_name" content="T.Ben&#39;s Notes">
-<meta property="og:description" content="IntroductionAttention or Bahdanau Attention is getting more and more interest in Neural Machine Translation(NMT)  and other sequence prediction research, in this article I will briefly introduce what">
+<meta property="og:description" content="1list(dataframe.columns.values)">
 <meta property="og:locale" content="en">
-<meta property="og:image" content="https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2017/10/Example-of-an-Encoder-Decode-Network.png">
-<meta property="og:image" content="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_mechanism.jpg">
-<meta property="og:image" content="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_equation_0.jpg">
-<meta property="og:image" content="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_equation_1.jpg">
-<meta property="og:updated_time" content="2018-09-21T13:29:22.423Z">
+<meta property="og:updated_time" content="2018-10-19T21:35:19.314Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="What is Attention and how to use">
-<meta name="twitter:description" content="IntroductionAttention or Bahdanau Attention is getting more and more interest in Neural Machine Translation(NMT)  and other sequence prediction research, in this article I will briefly introduce what">
-<meta name="twitter:image" content="https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2017/10/Example-of-an-Encoder-Decode-Network.png">
+<meta name="twitter:title" content="[Pandas]How to list all columns">
+<meta name="twitter:description" content="1list(dataframe.columns.values)">
 
 
 
@@ -124,13 +119,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/Machine-Learning/What-is-Attention-and-how-to-use/"/>
+  <link rel="canonical" href="http://yoursite.com/pandas/Pandas-How-to-list-all-columns/"/>
 
 
 
 
 
-  <title>What is Attention and how to use | T.Ben's Notes</title>
+  <title>[Pandas]How to list all columns | T.Ben's Notes</title>
   
 
 
@@ -250,7 +245,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Machine-Learning/What-is-Attention-and-how-to-use/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/pandas/Pandas-How-to-list-all-columns/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="T.Ben Wang">
@@ -267,7 +262,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">What is Attention and how to use</h1>
+          <h1 class="post-title" itemprop="name headline">[Pandas]How to list all columns</h1>
         
 
         <div class="post-meta">
@@ -279,8 +274,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-09-20T10:06:45+01:00">
-                2018-09-20
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-10-19T22:31:23+01:00">
+                2018-10-19
               </time>
             
 
@@ -302,8 +297,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
+                  <a href="/categories/pandas/" itemprop="url" rel="index">
+                    <span itemprop="name">pandas</span>
                   </a>
                 </span>
 
@@ -320,9 +315,9 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/Machine-Learning/What-is-Attention-and-how-to-use/#comments" itemprop="discussionUrl">
+                <a href="/pandas/Pandas-How-to-list-all-columns/#comments" itemprop="discussionUrl">
                   <span class="post-comments-count disqus-comment-count"
-                        data-disqus-identifier="/Machine-Learning/What-is-Attention-and-how-to-use/" itemprop="commentCount"></span>
+                        data-disqus-identifier="/pandas/Pandas-How-to-list-all-columns/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -350,31 +345,7 @@
       
 
       
-        <h3 id="Introduction"><a href="#Introduction" class="headerlink" title="Introduction"></a>Introduction</h3><p>Attention or Bahdanau Attention is getting more and more interest in Neural Machine Translation(NMT)  and other sequence prediction research, in this article I will briefly introduce what is Attention mechanism, why important it is and how do we use it(in Tensorflow)</p>
-<h3 id="Why-Attention"><a href="#Why-Attention" class="headerlink" title="Why Attention"></a>Why Attention</h3><p>Attention is a mechanism derived from the seq-seq model which started the era of NMT,  in this <a href="https://arxiv.org/pdf/1409.3215.pdf" target="_blank" rel="noopener">paper</a> Sutskever proposed a novel RNN network called encode-decode network to tackle seq-seq prediction problems such as translation.</p>
-<p><img src="https://3qeqpr26caki16dnhd19sv6by6v-wpengine.netdna-ssl.com/wp-content/uploads/2017/10/Example-of-an-Encoder-Decode-Network.png" alt="Example of an Encoder-Decode Network, from &quot;Sequence to Sequence Learning with Neural Network&quot; 2014"></p>
-<p>The model performed well in many translation tasks, but it turned out to be limited to very long sequences. The reason lies in this network needs to be able to capture all information about the source sentence, that is easy to long sentences, especially those that are longer than sentences in the training corpus.</p>
-<p>Attention provides a solution to this problem, and its core idea is to focus on a relevant part of the source sequence on each step of the decoder.</p>
-<p>Maybe unexpectedly, Attention also benefits seq2seq model in other ways, the first one is that it helps with vanishing gradient problem by providing a shortcut to faraway states; the second one is that it gives some interpretability which I will illustrate in the following sector.</p>
-<h3 id="What-is-Attention"><a href="#What-is-Attention" class="headerlink" title="What is Attention"></a>What is Attention</h3><p>Attention is merely a context vector that provides a richer encoding of the source sequence. <strong>The vector is computed at every decoder time step.</strong></p>
-<p><img src="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_mechanism.jpg" alt="img"></p>
-<p>As illustrated in the figure above, the attention computation can be summarized into the following three steps:</p>
-<ol>
-<li><p>Compute attention weights based on the current target hidden state and all source state(Figure 1)</p>
-</li>
-<li><p>The weighted average of the source states based on the attention weights are then computed, and the result is a context vector(Figure 2)</p>
-</li>
-<li><p>Context vector combined with the current target hidden state yields the attention vector(Figure 3)</p>
-<p>The attention vector is then fed to the next decoding step. </p>
-<p><img src="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_equation_0.jpg" alt="img"></p>
-<p>the score in Figure 1 is computed as follows:</p>
-<p><img src="https://github.com/tensorflow/nmt/raw/master/nmt/g3doc/img/attention_equation_1.jpg" alt="img"></p>
-</li>
-</ol>
-<p>Regarding the score,  the methods by which it is calculated lead to different performance. </p>
-<h3 id="Coding-Attention-with-Tensorflow"><a href="#Coding-Attention-with-Tensorflow" class="headerlink" title="Coding Attention with Tensorflow"></a>Coding Attention with Tensorflow</h3><p>Suppose we have already got an encoder-decoder implementation, what we need to do is trivial because Tensorflow has realized in advance the most of the attention building process(Figure 1-3).</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Transfer encoder_outputs to attention_states </span></span><br><span class="line">attention_states = tf.transpose(encoder_outputs, [<span class="number">1</span>, <span class="number">0</span>, <span class="number">2</span>])</span><br><span class="line"></span><br><span class="line"><span class="comment"># Apply existing attention mechanism </span></span><br><span class="line">attention_mechanism = tf.contrib.seq2seq.BahdanauAttention(</span><br><span class="line">    num_units, attention_states,</span><br><span class="line">    memory_sequence_length=source_sequence_length)</span><br><span class="line"></span><br><span class="line"><span class="comment"># Feed to the decoder</span></span><br><span class="line">decoder_cell = tf.contrib.seq2seq.AttentionWrapper(</span><br><span class="line">    decoder_cell, attention_mechanism,</span><br><span class="line">    attention_layer_size=num_units)</span><br></pre></td></tr></table></figure>
-<p>The rest codes are mostly the same as standard encoder-decoder.</p>
+        <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">list(dataframe.columns.values)</span><br></pre></td></tr></table></figure>
 
       
     </div>
@@ -399,8 +370,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/pandas/Pandas-How-to-drop-columns-rows/" rel="next" title="[Pandas]How to drop columns/rows">
-                <i class="fa fa-chevron-left"></i> [Pandas]How to drop columns/rows
+              <a href="/pandas/Pandas-How-to-import-from-Sql-Server/" rel="next" title="[Pandas] How to import from Sql Server">
+                <i class="fa fa-chevron-left"></i> [Pandas] How to import from Sql Server
               </a>
             
           </div>
@@ -409,8 +380,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/pandas/Pandas-How-to-select-data/" rel="prev" title="[Pandas]How to select data">
-                [Pandas]How to select data <i class="fa fa-chevron-right"></i>
+              <a href="/Pandas/Pandas-How-to-calculate-datetime-difference-in-years/" rel="prev" title="[Pandas]How to calculate datetime difference in years">
+                [Pandas]How to calculate datetime difference in years <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -473,17 +444,8 @@
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
-            Table of Contents
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
-            Overview
-          </li>
-        </ul>
-      
 
-      <section class="site-overview-wrap sidebar-panel">
+      <section class="site-overview-wrap sidebar-panel sidebar-panel-active">
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
@@ -556,22 +518,6 @@
         </div>
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Introduction"><span class="nav-number">1.</span> <span class="nav-text">Introduction</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Why-Attention"><span class="nav-number">2.</span> <span class="nav-text">Why Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#What-is-Attention"><span class="nav-number">3.</span> <span class="nav-text">What is Attention</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Coding-Attention-with-Tensorflow"><span class="nav-number">4.</span> <span class="nav-text">Coding Attention with Tensorflow</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
@@ -729,9 +675,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/Machine-Learning/What-is-Attention-and-how-to-use/';
-          this.page.identifier = '/Machine-Learning/What-is-Attention-and-how-to-use/';
-          this.page.title = 'What is Attention and how to use';
+          this.page.url = 'http://yoursite.com/pandas/Pandas-How-to-list-all-columns/';
+          this.page.identifier = '/pandas/Pandas-How-to-list-all-columns/';
+          this.page.title = '[Pandas]How to list all columns';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tbenwang-com.disqus.com/embed.js';

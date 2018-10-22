@@ -18,6 +18,10 @@ tags:
 * [[Pandas]How to rename columns](/pandas/Pandas-How-to-rename-columns/)
 * [[Pandas]How to drop columns rows](/pandas/Pandas-How-to-drop-columns-rows/)
 * [[Pandas]Handle missing data](/pandas/Pandas-Handle-missing-data/)
+* [[Pandas]How to import from Sql Server](/pandas/Pandas-How-to-import-from-Sql-Server/)
+* [[Pandas]How to list all columns](/pandas/Pandas-How-to-list-all-columns/)
+* [[Pandas]How to calculate datetime difference in years](/pandas/Pandas-How-to-calculate-datetime-difference-in-years/)
+* [[Pandas]How to plot counts of each value](/pandas/Pandas-How-to-plot-counts-of-each-value/)
 
 ---
 

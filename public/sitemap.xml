@@ -2,16 +2,51 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
-    <loc>http://yoursite.com/Machine-Learning/Basics-of-words-embedding/</loc>
+    <loc>http://yoursite.com/index.html</loc>
     
-    <lastmod>2018-10-04T21:31:24.832Z</lastmod>
+    <lastmod>2018-10-22T20:27:49.646Z</lastmod>
     
   </url>
   
   <url>
-    <loc>http://yoursite.com/index.html</loc>
+    <loc>http://yoursite.com/pandas/Pandas-How-to-plot-counts-of-each-value/</loc>
     
-    <lastmod>2018-10-04T21:29:17.280Z</lastmod>
+    <lastmod>2018-10-22T20:18:06.968Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/Pandas/Pandas-How-to-calculate-datetime-difference-in-years/</loc>
+    
+    <lastmod>2018-10-22T15:57:22.627Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/pandas/Pandas-How-to-list-all-columns/</loc>
+    
+    <lastmod>2018-10-19T21:35:19.314Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/pandas/Pandas-How-to-import-from-Sql-Server/</loc>
+    
+    <lastmod>2018-10-18T19:13:30.526Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/tools/how-to-debug-python-with-vscode/</loc>
+    
+    <lastmod>2018-10-09T20:50:35.236Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/Machine-Learning/Basics-of-words-embedding/</loc>
+    
+    <lastmod>2018-10-04T21:31:24.832Z</lastmod>
     
   </url>
   
