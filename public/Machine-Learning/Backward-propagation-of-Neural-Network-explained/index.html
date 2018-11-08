@@ -1,0 +1,1107 @@
+<!DOCTYPE html>
+
+
+
+  
+
+
+<html class="theme-next mist use-motion" lang="en">
+<head>
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+<meta name="theme-color" content="#222">
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.4" rel="stylesheet" type="text/css" />
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="/images/apple-touch-icon-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="32x32" href="/images/favicon-32x32-next.png?v=5.1.4">
+
+
+  <link rel="icon" type="image/png" sizes="16x16" href="/images/favicon-16x16-next.png?v=5.1.4">
+
+
+  <link rel="mask-icon" href="/images/logo.svg?v=5.1.4" color="#222">
+
+
+
+
+
+  <meta name="keywords" content="data science, data analytics, pandas, tensorflow" />
+
+
+
+
+
+
+
+
+
+
+<meta name="description" content="Backward propagation of Neural Network explainedBackpropagation is the foundation of the deep neural network. Usually, we consider it to be kind of ‘dark magic’">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Backward propagation of Neural Network explained">
+<meta property="og:url" content="http://yoursite.com/Machine-Learning/Backward-propagation-of-Neural-Network-explained/index.html">
+<meta property="og:site_name" content="T.Ben&#39;s Notes">
+<meta property="og:description" content="Backward propagation of Neural Network explainedBackpropagation is the foundation of the deep neural network. Usually, we consider it to be kind of ‘dark magic’ we are not able to understand. However,">
+<meta property="og:locale" content="en">
+<meta property="og:image" content="http://yoursite.com/Users/wang/Work/blog/generator_hexo/source/pic/bp-01.png">
+<meta property="og:image" content="http://yoursite.com/Users/wang/Work/blog/generator_hexo/source/pic/bp-02.png">
+<meta property="og:image" content="http://yoursite.com/Users/wang/Work/blog/generator_hexo/source/pic/bp-03.png">
+<meta property="og:image" content="http://yoursite.com/Users/wang/Work/blog/generator_hexo/source/pic/bp-04.png">
+<meta property="og:image" content="http://yoursite.com/Users/wang/Work/blog/generator_hexo/source/pic/bp-05.png">
+<meta property="og:updated_time" content="2018-11-08T11:29:31.277Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="Backward propagation of Neural Network explained">
+<meta name="twitter:description" content="Backward propagation of Neural Network explainedBackpropagation is the foundation of the deep neural network. Usually, we consider it to be kind of ‘dark magic’ we are not able to understand. However,">
+<meta name="twitter:image" content="http://yoursite.com/Users/wang/Work/blog/generator_hexo/source/pic/bp-01.png">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Mist',
+    version: '5.1.4',
+    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    fancybox: true,
+    tabs: true,
+    motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/Machine-Learning/Backward-propagation-of-Neural-Network-explained/"/>
+
+
+
+
+
+  <title>Backward propagation of Neural Network explained | T.Ben's Notes</title>
+  
+
+
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+            (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+  ga('create', 'UA-125847424-1', 'auto');
+  ga('send', 'pageview');
+</script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="en">
+
+  
+  
+    
+  
+
+  <!-- hexo-inject:begin --><!-- hexo-inject:end --><div class="container sidebar-position-left page-post-detail">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">T.Ben's Notes</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">Rock Data, Rock Life</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-machine-learning">
+          <a href="/categories/machine-learning" rel="section">
+            
+            Machine Learning
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-pandas">
+          <a href="/categories/pandas" rel="section">
+            
+            Pandas
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tensorflow">
+          <a href="/categories/tensorflow" rel="section">
+            
+            Tensorflow
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Machine-Learning/Backward-propagation-of-Neural-Network-explained/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T.Ben Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T.Ben's Notes">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Backward propagation of Neural Network explained</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T11:14:28Z">
+                2018-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Machine-Learning/Backward-propagation-of-Neural-Network-explained/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/Machine-Learning/Backward-propagation-of-Neural-Network-explained/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="Backward-propagation-of-Neural-Network-explained"><a href="#Backward-propagation-of-Neural-Network-explained" class="headerlink" title="Backward propagation of Neural Network explained"></a>Backward propagation of Neural Network explained</h1><p>Backpropagation is the foundation of the deep neural network. Usually, we consider it to be kind of ‘dark magic’ we are not able to understand. However, it should not be the black box which we stay away. In this article, I will try to explain backpropagation as well as the whole neural network step by step in the original mathematical way.</p>
+<h2 id="Outline"><a href="#Outline" class="headerlink" title="Outline"></a>Outline</h2><ul>
+<li>Overview of the architecture</li>
+<li>Initialize parameters</li>
+<li>Implement forward propagation</li>
+<li>Compute Loss</li>
+<li>Implement Backward propagation</li>
+<li>Update parameters</li>
+</ul>
+<h2 id="1-The-architecture"><a href="#1-The-architecture" class="headerlink" title="1. The architecture"></a>1. The architecture</h2><p>This neural network I’m going to explain is a 2-Layer neural network. The first layer is Linear + Sigmoid, and the second Layer is Linear + Softmax. </p>
+<p><img src="/Users/wang/Work/blog/generator_hexo/source/pic/bp-01.png" alt="image-20181107215309162"></p>
+<p>The architecture in the math formula</p>
+<script type="math/tex; mode=display">
+f(X)= Relu( Sigmoid(  X \times W_{ih} +b_{1}) \times W_{ho} + b_{2})</script><h2 id="2-Initialize-parameters"><a href="#2-Initialize-parameters" class="headerlink" title="2.Initialize parameters"></a>2.Initialize parameters</h2><p>We take one example which has two features like below</p>
+<script type="math/tex; mode=display">
+X= [x1, x2]= [0.1, 0.2]</script><p>The parameters are taken randomly. </p>
+<script type="math/tex; mode=display">
+W_{is}=
+
+\begin{bmatrix}
+W_{i1h1} & W_{i1h2}\\
+W_{i2h1} & W_{i2h2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.7 & 0.6\\
+0.5 & 0.4
+\end{bmatrix}</script><script type="math/tex; mode=display">
+W_{sr}=
+\begin{bmatrix}
+W_{h1o1}&W_{h1o2}\\
+W_{h2o1}&W_{h2o2}
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.4&0.6\\
+0.9&0.8
+\end{bmatrix}</script><script type="math/tex; mode=display">
+b_{1}=[b_{11}, b_{12}] =[0.5,0.6]</script><script type="math/tex; mode=display">
+b_{2}= [b_{21}, b_{22}] 
+= [0.7, 0.9]</script><h2 id="3-Forward-Propagation"><a href="#3-Forward-Propagation" class="headerlink" title="3. Forward Propagation"></a>3. Forward Propagation</h2><h3 id="3-1-Layer1"><a href="#3-1-Layer1" class="headerlink" title="3.1 Layer1:"></a>3.1 Layer1:</h3><p><img src="/Users/wang/Work/blog/generator_hexo/source/pic/bp-02.png" alt="image-20181108110049524"></p>
+<h3 id="Linear"><a href="#Linear" class="headerlink" title="Linear"></a>Linear</h3><script type="math/tex; mode=display">
+X \times  W_{ih}  + b_{1}
+=
+[x1, x2]
+\times
+\begin{bmatrix}
+W_{i1h1} & W_{i1h2}\\
+W_{i2h1} & W_{i2h2}
+\end{bmatrix}
++
+[b_{11}, b_{12}]
+=
+[0.1, 0.2]
+\times
+\begin{bmatrix}
+0.7 & 0.6\\
+0.5 & 0.4
+\end{bmatrix}
++
+[0.5, 0.6]
+=
+[0.67, 0.74]</script><h3 id="Sigmoid"><a href="#Sigmoid" class="headerlink" title="Sigmoid"></a>Sigmoid</h3><script type="math/tex; mode=display">
+Sigmoid(x)=1/(1+e^{-x})</script><script type="math/tex; mode=display">
+[h_{out1},h_{out2}]
+=
+Sigmoid(X \times W_{ih} + b_{1}) =
+[Sigmoid(0.67),Sigmoid(0.74)]
+=
+[0.6615,0.6770]</script><h3 id="3-2-Layer2"><a href="#3-2-Layer2" class="headerlink" title="3.2 Layer2:"></a>3.2 Layer2:</h3><p><img src="/Users/wang/Work/blog/generator_hexo/source/pic/bp-03.png" alt="image-20181108110231696"></p>
+<h3 id="Linear-1"><a href="#Linear-1" class="headerlink" title="Linear"></a>Linear</h3><script type="math/tex; mode=display">
+[o_{in1}, o_{in2}]
+=
+[h_{out1}, h_{out2}] \times W_{ho}  + b_{2}
+=
+[h_{out1}, h_{out2}]
+\times
+\begin{bmatrix}
+W_{h1o1} & W_{h1o2}\\
+W_{h2o1} & W_{h2o2}
+\end{bmatrix}
++
+[b_{21}, b_{22}]
+=\\
+[0.6615, 0.6770]
+\times
+\begin{bmatrix}
+0.7 & 0.5\\
+0.6 & 0.4
+\end{bmatrix}
++
+[0.5, 0.6]
+=
+
+[1.3693, 1.0391]</script><h3 id="Softmax"><a href="#Softmax" class="headerlink" title="Softmax"></a>Softmax</h3><script type="math/tex; mode=display">
+Softmax(x)_{j}= \frac{e^{xj}}{\sum_{i=1}^n e^{xi}} (j=1,2...n)</script><script type="math/tex; mode=display">
+[o_{out1},o_{out2}]
+=
+Softmax(X\times W_{ho} + b_{2})=
+[
+\frac{e^{1.3693}}{e^{1.3693} +e^{1.0391}} ,
+\frac{e^{1.0391}}{e^{1.3693} +e^{1.0391}} 
+]
+=
+[0.5818,0.4182]</script><h2 id="4-Compute-Loss"><a href="#4-Compute-Loss" class="headerlink" title="4. Compute Loss"></a>4. Compute Loss</h2><p>The Loss function here we use is cross-entropy cost</p>
+<script type="math/tex; mode=display">
+Crossentropy= -\frac{1}{m} \sum\limits_{i = 1}^{m} (y^{(i)}\log\left(a^{[L] (i)}\right) + (1-y^{(i)})\log\left(1- a^{[L](i)}\right))</script><p>The actual output should be </p>
+<script type="math/tex; mode=display">
+[y_{1},y_{2}] 
+=
+[1.00, 0.00]</script><p>Since we only have one example, that means  ‘m = 1’,  the total loss is computed as follows :</p>
+<script type="math/tex; mode=display">
+-\frac{1}{1} \sum\limits_{i = 1}^{1} (y_{1}\log\left(o_{out1}\right) + 0 +0 + 1*log(1-o_{out2}))=
+-(1*log(0.5818)+0+0+1*log(1-0.4182))==0.4704</script><h2 id="5-Backward-Propagation"><a href="#5-Backward-Propagation" class="headerlink" title="5. Backward Propagation"></a>5. Backward Propagation</h2><p>In this section, we will go through backward propagation stage by stage.</p>
+<h3 id="5-1-Basic-Derivatives"><a href="#5-1-Basic-Derivatives" class="headerlink" title="5.1 Basic Derivatives"></a>5.1 Basic Derivatives</h3><h4 id="Sigmoid-1"><a href="#Sigmoid-1" class="headerlink" title="Sigmoid:"></a>Sigmoid:</h4><script type="math/tex; mode=display">
+\frac{\partial Sigmoid(x)}{\partial x}
+=
+\frac{\partial \frac{1}{(1+e^{-x})}}{\partial x}
+=
+\frac{ e^{-x}}{(1+e^{-x})^2}
+=
+(\frac{1+e^{-x}-1}{1+e^{-x}})\frac{1}{1+e^{-x}}
+=
+(1 - Sigmoid(x))\times Sigmoid(x)</script><h4 id="Softmax-1"><a href="#Softmax-1" class="headerlink" title="Softmax:"></a>Softmax:</h4><p>At first we know:</p>
+<p>For </p>
+<script type="math/tex; mode=display">
+f(x)=\frac{g(x)}{h(x)}</script><script type="math/tex; mode=display">
+f'(x) = \frac{g'(x)h(x)-g(x)h'(x)}{[h(x)]^2}</script><p>Then the derivation of Softmax is </p>
+<script type="math/tex; mode=display">
+\frac{\partial Softmax(x)}{\partial x1}=\frac{e^{x1}(e^{x1}+e^{x2})-e^{x1}e^{x1} }{(e^{x1}+e^{x2})^2} = \frac{e^{x1+x2}}{(e^{x1}+e^{x2})^2}</script><h3 id="5-2-The-backward-Pass"><a href="#5-2-The-backward-Pass" class="headerlink" title="5.2 The backward Pass"></a>5.2 The backward Pass</h3><h4 id="5-2-1-Layer1-Layer2"><a href="#5-2-1-Layer1-Layer2" class="headerlink" title="5.2.1 Layer1-Layer2"></a>5.2.1 Layer1-Layer2</h4><h4 id="Weight-derivatives-with-respect-to-the-error"><a href="#Weight-derivatives-with-respect-to-the-error" class="headerlink" title="Weight derivatives with respect to the error"></a>Weight derivatives with respect to the error</h4><p><img src="/Users/wang/Work/blog/generator_hexo/source/pic/bp-04.png" alt="image-20181107220124773"></p>
+<p>Consider W<sub>ho</sub> , we want to know how W<sub>ho</sub> will affect the total error, aka the value of </p>
+<script type="math/tex; mode=display">
+\frac{\partial E_{total}}{\partial W_{ho}}</script><p><a href="https://en.wikipedia.org/wiki/Chain_rule" target="_blank" rel="noopener">Chain Rule</a> states that:</p>
+<script type="math/tex; mode=display">
+\frac{\partial z}{\partial x} =
+\frac{\partial z}{\partial y}\cdot\frac{\partial y}{\partial x}</script><p>So we have</p>
+<script type="math/tex; mode=display">
+\frac{\partial E_{total}}{\partial W_{h2o1}}=
+\frac{\partial E_{total}}{\partial o_{out1}}
+\cdot \frac{\partial o_{out1}}{\partial o_{int1}} 
+\cdot \frac{\partial o_{int1}}{\partial W_{h2o1}}</script><p>Let’s break this through stage by stage</p>
+<ul>
+<li>Stage1</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{\partial E_{total}}{\partial o_{out1}} = 
+\frac{\partial (-(y_{1}*log(o_{out1})+(1-y_{1})*log(1-o_{out1})))}{\partial o_{out1}}+0
+=-\frac{1}{o_{out1}}=-1/0.5818=-1.719</script><ul>
+<li>Stage2</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{\partial o_{1}}{\partial i_{1}}=
+\frac{\partial Softmax(i_{1})}{\partial i_{1}}
+=
+\frac{e^{i_{1}} e^{i_{2}}}{(e^{i_{1}}+e^{i_{2}})^2}
+=
+\frac{e^{i_{1}} e^{i_{2}}}{(e^{i_{1}}+e^{i_{2}})^2}
+=
+\frac{e^{1.3693}\cdot e^{1.0391}}{(e^{1.3693}+e^{1.0391})^2}=0.2433</script><ul>
+<li>Stage3 </li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{\partial o_{in1}}{\partial W_{h2o1}} = 
+\frac{\partial (h_{out1}*W_{h1o1} + h_{out2}*W_{h2o1}+b_{21})}{\partial W_{h2o1}}
+= h_{out2}=0.6770</script><p>Finally we apply the chain rule:</p>
+<script type="math/tex; mode=display">
+\frac{\partial E_{total}}{\partial W_{h2o1}}= -1.719 * 0.2433 * 0.677 = -0.2831</script><p>Let’s go through all the weights in Layer2</p>
+<script type="math/tex; mode=display">
+W_{ho}'=
+\begin{bmatrix}
+W_{h1o1}' & W_{h1o2}'\\
+W_{h2o1}' & W_{h2o2}'
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{\partial E_{total}}{\partial W_{h1o1}} & \frac{\partial E_{total}}{\partial W_{h1o2}} \\
+\frac{\partial E_{total}}{\partial W_{h2o1}} & \frac{\partial E_{total}}{\partial W_{h2o2}} 
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{\partial E_{total}}{\partial o_{out1}}
+\cdot \frac{\partial o_{out1}}{\partial o_{in1}} 
+\cdot \frac{\partial o_{in1}}{\partial W_{h1o1}}
+&
+\frac{\partial E_{total}}{\partial o_{out2}}
+\cdot \frac{\partial o_{out2}}{\partial o_{in2}} 
+\cdot \frac{\partial o_{in2}}{\partial W_{h1o2}}
+\\
+\frac{\partial E_{total}}{\partial o_{out1}}
+\cdot \frac{\partial o_{out1}}{\partial o_{in1}} 
+\cdot \frac{\partial o_{in1}}{\partial W_{h2o1}} 
+&
+\frac{\partial E_{total}}{\partial o_{out2}}
+\cdot \frac{\partial o_{out2}}{\partial o_{in2}} 
+\cdot \frac{\partial o_{in2}}{\partial W_{h2o2}}
+\end{bmatrix}
+\\
+=
+\begin{bmatrix}
+-1.719*0.2433*0.6615 & -2.3912*0.2433*0.6615 \\
+-1.719*0.2433*0.6770 & -2.3912*0.2433*0.6770
+\end{bmatrix}
+=
+\begin{bmatrix}
+-0.2767 & -0.3733\\
+-0.2831 & -0.3853
+\end{bmatrix}</script><h4 id="Update-weights-according-to-learning-rate"><a href="#Update-weights-according-to-learning-rate" class="headerlink" title="Update weights according to learning rate"></a>Update weights according to learning rate</h4><p>Our training target is to make the prediction value approximate the correct value, while it can be transferred to minimize the error by updating weights with the help of learning rate. Suppose the learning rate is 0.02.</p>
+<p>We got the updated weight matrix as folows</p>
+<script type="math/tex; mode=display">
+W_{ho}^* =
+\begin{bmatrix}
+W_{h1o1} - \eta W_{h1o1}' & W_{h1o2} - \eta W_{h1o2}'\\
+W_{h2o1} - \eta W_{h2o1}' & W_{h2o2} - \eta W_{h2o2}'
+\end{bmatrix}
+=
+\begin{bmatrix}
+0.4 - 0.02*(-0.2767)&0.6 - 0.02*(-0.3733)\\
+0.9 - 0.02*(-0.2831)&0.8 - 0.02*(-0.3853)
+\end{bmatrix}\\
+=
+\begin{bmatrix}
+0.4055 & 0.6075\\
+0.9057 & 0.8077
+\end{bmatrix}</script><p>That is the updated weight of Layer1-Layer2. The update of Input-Layer weights is the same story I will illustrate as follows.</p>
+<h4 id="5-2-2-Layer0-Input-Layer-Layer1"><a href="#5-2-2-Layer0-Input-Layer-Layer1" class="headerlink" title="5.2.2 Layer0(Input Layer) - Layer1"></a>5.2.2 Layer0(Input Layer) - Layer1</h4><p><img src="/Users/wang/Work/blog/generator_hexo/source/pic/bp-05.png" alt="image-20181107222954838"></p>
+<p>Follow the path of the previous chapter</p>
+<ul>
+<li>Stage1:</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{\partial h_{out1}}{\partial h_{in1}}
+=
+\frac{\partial Sigmoid(h_{in1})}{\partial h_{in1}}
+=
+Sigmoid(h_{in1})*(1-Sigmoid(h_{in1}))
+=\\
+Sigmoid(0.67)*(1-Sigmoid(0.67))=0.2239</script><ul>
+<li>Stage2:</li>
+</ul>
+<script type="math/tex; mode=display">
+\frac{\partial h_{in1}}{\partial W_{i2h1}}
+=
+\frac{\partial(x1 * W_{i1h1} + x2 * W_{i2h1} + b11)}{\partial W_{i2h1}}
+=
+x2=0.2</script><p>Apply the chain rule:</p>
+<script type="math/tex; mode=display">
+\frac{\partial E_{total}}{\partial W_{i2h1}}=
+\frac{\partial E_{total}}{\partial h_{out1}}
+\cdot \frac{\partial h_{out1}}{\partial h_{in1}} 
+\cdot \frac{\partial h_{in1}}{\partial W_{i2h1}}</script><p>We already got the second and third derivations, regarding the first derivation, we apply the chain rule again, but in the opposite direction.</p>
+<script type="math/tex; mode=display">
+\frac{\partial E_{total}}{\partial h_{out1}}
+= 
+\frac{\partial E_{total}}{\partial o_{out1}}
+\frac{\partial o_{out1}}{\partial o_{in1}}
+\frac{\partial o_{in1}}{\partial h1_{out}}</script><p>We have computed the first and second results, and the third one is merely a deviation of the linear function</p>
+<script type="math/tex; mode=display">
+\frac{\partial E_{total}}{\partial h_{out1}}
+= 
+-1.719*0.2433* 
+\frac{\partial(h_{out1}*W_{h1o1} + h_{out2}*W_{h2o1})}{\partial h_{out1}}
+=\\
+-1.719*0.2433*W_{h1o1}
+=-1.719*0.2433*0.4
+=-0.1673</script><p>Then we got</p>
+<script type="math/tex; mode=display">
+\frac{\partial E_{total}}{\partial W_{i2h1}}= -0.1673*0.2239 * 0.2=-0.0075</script><p>Similarly , we can get the Layer0-Layer1 derivatives with respective to the total error</p>
+<script type="math/tex; mode=display">
+W_{ih}'
+=
+\begin{bmatrix}
+\frac{\partial E_{total}}{\partial W_{i1h1}} & \frac{\partial E_{total}}{\partial W_{i1h2}}\\
+\frac{\partial E_{total}}{\partial W_{i2h1}} & \frac{\partial E_{total}}{\partial W_{i2h2}}
+\end{bmatrix}
+=
+\begin{bmatrix}
+\frac{\partial E_{total}}{\partial h_{out1}}
+\cdot \frac{\partial h1_{out}}{\partial h1_{in}} 
+\cdot \frac{\partial h1_{in}}{\partial W_{i1h1}}
+& 
+\frac{\partial E_{total}}{\partial h_{out2}}
+\cdot \frac{\partial h2_{out}}{\partial h2_{in}} 
+\cdot \frac{\partial h2_{in}}{\partial W_{i1h2}}
+\\
+\frac{\partial E_{total}}{\partial h_{out1}}
+\cdot \frac{\partial h_{out1}}{\partial h_{in1}} 
+\cdot \frac{\partial h_{in1}}{\partial W_{i2h1}}
+& 
+\frac{\partial E_{total}}{\partial h_{out2}}
+\cdot \frac{\partial h_{out2}}{\partial h_{in2}} 
+\cdot \frac{\partial h_{in2}}{\partial W_{i2h2}}
+\end{bmatrix}
+\\
+=
+\begin{bmatrix}
+-0.1673*0.2239 * 0.1 &  -0.4654*0.2187*0.1\\
+-0.1673*0.2239 * 0.2 &  -0.4654*0.2187*0.2
+\end{bmatrix}
+\\
+=
+\begin{bmatrix}
+-0.0037 &  -0.0102\\
+-0.0075 &  -0.0204
+\end{bmatrix}</script><h4 id="Update-weights-according-to-learning-rate-1"><a href="#Update-weights-according-to-learning-rate-1" class="headerlink" title="Update weights according to learning rate"></a>Update weights according to learning rate</h4><p>Update the weights with learning rate 0.02，we got the final weight matrix</p>
+<script type="math/tex; mode=display">
+W_{ih}^*=
+\begin{bmatrix}
+W_{i1h1} - \eta (W_{i1h1}') &  W_{i1h2} - \eta (W_{i1h2}')\\
+W_{i2h1} - \eta (W_{i2h1}') &  W_{i2h2} - \eta (W_{i2h2}')
+\end{bmatrix}
+=
+\begin{bmatrix}
+(0.7 -0.2*(-0.0037))& (0.6 - 0.2 *(-0.0102)) \\
+(0.5 - 0.2*(-0.0075)) & (0.4 - 0.2 * (-0.0204))
+\end{bmatrix}
+\\
+=
+\begin{bmatrix}
+0.7007 & 0.6020\\
+0.5015 & 0.4041
+\end{bmatrix}</script><h3 id="5-3-Wrap-up"><a href="#5-3-Wrap-up" class="headerlink" title="5.3 Wrap up"></a>5.3 Wrap up</h3><p>Finally we get all the weights updated</p>
+<script type="math/tex; mode=display">
+W_{ho}^* = 
+\begin{bmatrix}
+0.4055 & 0.6075\\
+0.9057 & 0.8077
+\end{bmatrix}</script><script type="math/tex; mode=display">
+W_{ih}^*=
+\begin{bmatrix}
+0.7007 & 0.6020\\
+0.5015 & 0.4041
+\end{bmatrix}</script><h2 id="6-Conclusion"><a href="#6-Conclusion" class="headerlink" title="6. Conclusion"></a>6. Conclusion</h2><ul>
+<li>Backpropagation is beautiful designed architecture. Every gate in the diagram gets some input and makes some output, the gradients of input concerning the output indicates how strongly the gate wants the output to increase or decrease. The communication between these “smart” gates make it possible for complicated prediction or classification tasks.</li>
+<li>The activation function matters. Take Sigmoid as an example, and we saw the gradients of its gates “vanish” significantly to 0.00XXX, this will make the rest of backward pass almost to zero due to the multiplication in chain rule. So we should always be nervous in Sigmoid, Relu is possibly a better choice.</li>
+<li>If we look back to the computing process,  a lot can be done when we implement the neural network with codes, such as the caching of gradients when we do forward propagation and the extracting of common gradient computation functions.</li>
+</ul>
+<h2 id="7-Reference"><a href="#7-Reference" class="headerlink" title="7. Reference"></a>7. Reference</h2><ol>
+<li><a href="&#109;&#97;&#x69;&#x6c;&#x74;&#x6f;&#x3a;&#x68;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#x64;&#105;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#64;&#49;&#x34;&#x70;&#x72;&#97;&#x6b;&#x61;&#115;&#x68;&#x2f;&#98;&#x61;&#99;&#x6b;&#x2d;&#112;&#x72;&#111;&#x70;&#97;&#103;&#x61;&#116;&#105;&#x6f;&#110;&#45;&#x69;&#x73;&#x2d;&#x76;&#x65;&#114;&#121;&#x2d;&#115;&#105;&#109;&#x70;&#x6c;&#x65;&#x2d;&#x77;&#104;&#x6f;&#45;&#x6d;&#97;&#100;&#x65;&#45;&#x69;&#x74;&#x2d;&#x63;&#x6f;&#x6d;&#x70;&#108;&#105;&#x63;&#97;&#x74;&#x65;&#100;&#x2d;&#x39;&#x37;&#98;&#x37;&#x39;&#52;&#99;&#57;&#55;&#x65;&#x35;&#x63;">&#x68;&#116;&#x74;&#112;&#115;&#x3a;&#47;&#47;&#x6d;&#x65;&#x64;&#105;&#117;&#109;&#x2e;&#99;&#x6f;&#109;&#47;&#64;&#49;&#x34;&#x70;&#x72;&#97;&#x6b;&#x61;&#115;&#x68;&#x2f;&#98;&#x61;&#99;&#x6b;&#x2d;&#112;&#x72;&#111;&#x70;&#97;&#103;&#x61;&#116;&#105;&#x6f;&#110;&#45;&#x69;&#x73;&#x2d;&#x76;&#x65;&#114;&#121;&#x2d;&#115;&#105;&#109;&#x70;&#x6c;&#x65;&#x2d;&#x77;&#104;&#x6f;&#45;&#x6d;&#97;&#100;&#x65;&#45;&#x69;&#x74;&#x2d;&#x63;&#x6f;&#x6d;&#x70;&#108;&#105;&#x63;&#97;&#x74;&#x65;&#100;&#x2d;&#x39;&#x37;&#98;&#x37;&#x39;&#52;&#99;&#57;&#55;&#x65;&#x35;&#x63;</a>.</li>
+<li><a href="https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/" target="_blank" rel="noopener">https://mattmazur.com/2015/03/17/a-step-by-step-backpropagation-example/</a>.  </li>
+<li><a href="&#109;&#97;&#105;&#108;&#116;&#111;&#x3a;&#x68;&#x74;&#116;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#x64;&#105;&#117;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x6b;&#x61;&#x72;&#x70;&#x61;&#116;&#x68;&#x79;&#47;&#121;&#101;&#115;&#x2d;&#121;&#111;&#x75;&#45;&#115;&#104;&#111;&#117;&#x6c;&#x64;&#45;&#117;&#x6e;&#100;&#101;&#114;&#115;&#x74;&#97;&#x6e;&#x64;&#45;&#x62;&#97;&#x63;&#x6b;&#x70;&#x72;&#x6f;&#112;&#45;&#x65;&#50;&#102;&#x30;&#x36;&#101;&#x61;&#98;&#x34;&#57;&#54;&#x62;">&#x68;&#x74;&#116;&#x70;&#x73;&#x3a;&#x2f;&#x2f;&#x6d;&#101;&#x64;&#105;&#117;&#109;&#x2e;&#99;&#x6f;&#x6d;&#x2f;&#x40;&#x6b;&#x61;&#x72;&#x70;&#x61;&#116;&#x68;&#x79;&#47;&#121;&#101;&#115;&#x2d;&#121;&#111;&#x75;&#45;&#115;&#104;&#111;&#117;&#x6c;&#x64;&#45;&#117;&#x6e;&#100;&#101;&#114;&#115;&#x74;&#97;&#x6e;&#x64;&#45;&#x62;&#97;&#x63;&#x6b;&#x70;&#x72;&#x6f;&#112;&#45;&#x65;&#50;&#102;&#x30;&#x36;&#101;&#x61;&#98;&#x34;&#57;&#54;&#x62;</a></li>
+<li><a href="http://cs231n.github.io/optimization-2/" target="_blank" rel="noopener">http://cs231n.github.io/optimization-2/</a> I</li>
+<li><a href="https://google-developers.appspot.com/machine-learning/crash-course/backprop-scroll/" target="_blank" rel="noopener">https://google-developers.appspot.com/machine-learning/crash-course/backprop-scroll/</a> </li>
+<li><a href="https://github.com/Kulbear/deep-learning-coursera/blob/master/Neural%20Networks%20and%20Deep%20Learning/Building%20your%20Deep%20Neural%20Network%20-%20Step%20by%20Step.ipynb" target="_blank" rel="noopener">https://github.com/Kulbear/deep-learning-coursera/blob/master/Neural%20Networks%20and%20Deep%20Learning/Building%20your%20Deep%20Neural%20Network%20-%20Step%20by%20Step.ipynb</a></li>
+</ol>
+
+      
+    </div>
+    
+    
+    
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/pandas/Pandas-How-to-plot-counts-of-each-value/" rel="next" title="[Pandas]How to plot counts of each value">
+                <i class="fa fa-chevron-left"></i> [Pandas]How to plot counts of each value
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+
+  
+    <div class="comments" id="comments">
+      <div id="disqus_thread">
+        <noscript>
+          Please enable JavaScript to view the
+          <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a>
+        </noscript>
+      </div>
+    </div>
+
+  
+
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap">
+            Table of Contents
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview-wrap">
+            Overview
+          </li>
+        </ul>
+      
+
+      <section class="site-overview-wrap sidebar-panel">
+        <div class="site-overview">
+          <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+            
+              <p class="site-author-name" itemprop="name">T.Ben Wang</p>
+              <p class="site-description motion-element" itemprop="description">Anything about data and the world</p>
+          </div>
+
+          <nav class="site-state motion-element">
+
+            
+              <div class="site-state-item site-state-posts">
+              
+                <a href="/archives">
+              
+                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-name">posts</span>
+                </a>
+              </div>
+            
+
+            
+              
+              
+              <div class="site-state-item site-state-categories">
+                <a href="/categories/index.html">
+                  <span class="site-state-item-count">5</span>
+                  <span class="site-state-item-name">categories</span>
+                </a>
+              </div>
+            
+
+            
+
+          </nav>
+
+          
+
+          
+            <div class="links-of-author motion-element">
+                
+                  <span class="links-of-author-item">
+                    <a href="https://github.com/niuguy" target="_blank" title="GitHub">
+                      
+                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="mailto:tf.wang.seu@gmail.com" target="_blank" title="E-Mail">
+                      
+                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                  </span>
+                
+                  <span class="links-of-author-item">
+                    <a href="https://twitter.com/wang_tf" target="_blank" title="Twitter">
+                      
+                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                  </span>
+                
+            </div>
+          
+
+          
+          
+
+          
+          
+
+          
+
+        </div>
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#Backward-propagation-of-Neural-Network-explained"><span class="nav-number">1.</span> <span class="nav-text">Backward propagation of Neural Network explained</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#Outline"><span class="nav-number">1.1.</span> <span class="nav-text">Outline</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1-The-architecture"><span class="nav-number">1.2.</span> <span class="nav-text">1. The architecture</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2-Initialize-parameters"><span class="nav-number">1.3.</span> <span class="nav-text">2.Initialize parameters</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3-Forward-Propagation"><span class="nav-number">1.4.</span> <span class="nav-text">3. Forward Propagation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#3-1-Layer1"><span class="nav-number">1.4.1.</span> <span class="nav-text">3.1 Layer1:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear"><span class="nav-number">1.4.2.</span> <span class="nav-text">Linear</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Sigmoid"><span class="nav-number">1.4.3.</span> <span class="nav-text">Sigmoid</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#3-2-Layer2"><span class="nav-number">1.4.4.</span> <span class="nav-text">3.2 Layer2:</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Linear-1"><span class="nav-number">1.4.5.</span> <span class="nav-text">Linear</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Softmax"><span class="nav-number">1.4.6.</span> <span class="nav-text">Softmax</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4-Compute-Loss"><span class="nav-number">1.5.</span> <span class="nav-text">4. Compute Loss</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5-Backward-Propagation"><span class="nav-number">1.6.</span> <span class="nav-text">5. Backward Propagation</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#5-1-Basic-Derivatives"><span class="nav-number">1.6.1.</span> <span class="nav-text">5.1 Basic Derivatives</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#Sigmoid-1"><span class="nav-number">1.6.1.1.</span> <span class="nav-text">Sigmoid:</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Softmax-1"><span class="nav-number">1.6.1.2.</span> <span class="nav-text">Softmax:</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-2-The-backward-Pass"><span class="nav-number">1.6.2.</span> <span class="nav-text">5.2 The backward Pass</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-1-Layer1-Layer2"><span class="nav-number">1.6.2.1.</span> <span class="nav-text">5.2.1 Layer1-Layer2</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Weight-derivatives-with-respect-to-the-error"><span class="nav-number">1.6.2.2.</span> <span class="nav-text">Weight derivatives with respect to the error</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Update-weights-according-to-learning-rate"><span class="nav-number">1.6.2.3.</span> <span class="nav-text">Update weights according to learning rate</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#5-2-2-Layer0-Input-Layer-Layer1"><span class="nav-number">1.6.2.4.</span> <span class="nav-text">5.2.2 Layer0(Input Layer) - Layer1</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#Update-weights-according-to-learning-rate-1"><span class="nav-number">1.6.2.5.</span> <span class="nav-text">Update weights according to learning rate</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#5-3-Wrap-up"><span class="nav-number">1.6.3.</span> <span class="nav-text">5.3 Wrap up</span></a></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6-Conclusion"><span class="nav-number">1.7.</span> <span class="nav-text">6. Conclusion</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#7-Reference"><span class="nav-number">1.8.</span> <span class="nav-text">7. Reference</span></a></li></ol></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright">&copy; <span itemprop="copyrightYear">2018</span>
+  <span class="with-love">
+    <i class="fa fa-user"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">T.Ben Wang</span>
+
+  
+</div>
+
+
+  <div class="powered-by">Powered by <a class="theme-link" target="_blank" href="https://hexo.io">Hexo</a></div>
+
+
+
+  <span class="post-meta-divider">|</span>
+
+
+
+  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
+
+
+
+
+        
+
+
+
+
+
+
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+  
+
+  
+  
+    <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+  
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.4"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.4"></script>
+
+
+
+  
+  
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.4"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.4"></script>
+
+
+
+  
+
+
+  
+
+    
+      <script id="dsq-count-scr" src="https://tbenwang-com.disqus.com/count.js" async></script>
+    
+
+    
+      <script type="text/javascript">
+        var disqus_config = function () {
+          this.page.url = 'http://yoursite.com/Machine-Learning/Backward-propagation-of-Neural-Network-explained/';
+          this.page.identifier = '/Machine-Learning/Backward-propagation-of-Neural-Network-explained/';
+          this.page.title = 'Backward propagation of Neural Network explained';
+        };
+        var d = document, s = d.createElement('script');
+        s.src = 'https://tbenwang-com.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', '' + +new Date());
+        (d.head || d.body).appendChild(s);
+      </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>

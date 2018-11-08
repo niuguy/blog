@@ -8,7 +8,7 @@ subtitle: Rock Data, Rock Life
 description: Anything about data and the world
 author: T.Ben Wang
 language: en
-timezone: 
+timezone: UTC
 
 
 
@@ -81,6 +81,9 @@ robotstxt:
   useragent: "*"
   Allow: /
   sitemap: /sitemap.xml
+
+mathjax:
+    enable: true
 
 # Deployment
 ## Docs: https://hexo.io/docs/deployment.html
