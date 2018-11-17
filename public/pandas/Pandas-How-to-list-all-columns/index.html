@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="data science, data analytics, pandas, tensorflow" />
+  <meta name="keywords" content="machine learning, data science, data analytics, pandas, tensorflow" />
 
 
 
@@ -99,7 +99,7 @@
     root: '/',
     scheme: 'Mist',
     version: '5.1.4',
-    sidebar: {"position":"left","display":"hide","offset":12,"b2t":false,"scrollpercent":false,"onmobile":false},
+    sidebar: {"position":"left","display":"always","offset":12,"b2t":false,"scrollpercent":true,"onmobile":true},
     fancybox: true,
     tabs: true,
     motion: {"enable":true,"async":false,"transition":{"post_block":"fadeIn","post_header":"slideDownIn","post_body":"slideDownIn","coll_header":"slideLeftIn","sidebar":"slideUpIn"}},
@@ -250,7 +250,7 @@
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="T.Ben Wang">
       <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/avatar.gif">
+      <meta itemprop="image" content="/images/avatar.jpg">
     </span>
 
     <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
@@ -439,6 +439,8 @@
 
   <aside id="sidebar" class="sidebar">
     
+      <div id="sidebar-dimmer"></div>
+    
     <div class="sidebar-inner">
 
       
@@ -449,8 +451,12 @@
         <div class="site-overview">
           <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
             
+              <img class="site-author-image" itemprop="image"
+                src="/images/avatar.jpg"
+                alt="T.Ben Wang" />
+            
               <p class="site-author-name" itemprop="name">T.Ben Wang</p>
-              <p class="site-description motion-element" itemprop="description">Anything about data and the world</p>
+              <p class="site-description motion-element" itemprop="description">AI for better life</p>
           </div>
 
           <nav class="site-state motion-element">
@@ -489,19 +495,19 @@
                   <span class="links-of-author-item">
                     <a href="https://github.com/niuguy" target="_blank" title="GitHub">
                       
-                        <i class="fa fa-fw fa-github"></i>GitHub</a>
+                        <i class="fa fa-fw fa-github"></i></a>
                   </span>
                 
                   <span class="links-of-author-item">
                     <a href="mailto:tf.wang.seu@gmail.com" target="_blank" title="E-Mail">
                       
-                        <i class="fa fa-fw fa-envelope"></i>E-Mail</a>
+                        <i class="fa fa-fw fa-envelope"></i></a>
                   </span>
                 
                   <span class="links-of-author-item">
                     <a href="https://twitter.com/wang_tf" target="_blank" title="Twitter">
                       
-                        <i class="fa fa-fw fa-twitter"></i>Twitter</a>
+                        <i class="fa fa-fw fa-twitter"></i></a>
                   </span>
                 
             </div>
@@ -546,11 +552,7 @@
 
 
 
-  <span class="post-meta-divider">|</span>
 
-
-
-  <div class="theme-info">Theme &mdash; <a class="theme-link" target="_blank" href="https://github.com/iissnan/hexo-theme-next">NexT.Mist</a></div>
 
 
 
@@ -570,6 +572,8 @@
     
       <div class="back-to-top">
         <i class="fa fa-arrow-up"></i>
+        
+          <span id="scrollpercent"><span>0</span>%</span>
         
       </div>
     

@@ -9,7 +9,7 @@ Stochastic Gradient decent is one of the fundamental algorithm in deep learning.
 
 ![sgd](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/sgd-01.png)
 
-As what illustrated above, we want to approach the minimum value of $f(x)$ which is the point C. If we are now at point A, the derivation of A is $f'(x)<0$ , so we need to go right down which is the opposite direction of $f'(x)$ . If we stand at B,  the derivation of A is $f'(x)>0$  , we should go left down which is also the opposite direction of $f'(x)$ .  
+As what illustrated above, we want to approach the minimum value of f(x) which is the point C. If we are now at point A, the derivation of A is f'(x)>0, so we need to go right down which is the opposite direction of f'(x). If we stand at B,the derivation of A is f'(x)>0, we should go left down which is also the opposite direction of f'(x).  
 
 According to the optimization strategy , we should update the parameter like this:
 $$
