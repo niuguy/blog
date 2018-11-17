@@ -84,12 +84,12 @@
 <meta property="og:title" content="[Pandas]Handle missing data">
 <meta property="og:url" content="http://yoursite.com/pandas/Pandas-Handle-missing-data/index.html">
 <meta property="og:site_name" content="T.Ben&#39;s Notes">
-<meta property="og:description" content="Missing data is a common problem in real data preprocessing, luckily pandas has done a lot to help us handle it. This article will show the codes on how to do it. ###Produce some data with missing val">
+<meta property="og:description" content="Missing data is a common problem in real data preprocessing, luckily pandas has done a lot to help us handle it. This article will show the codes on how to do it. Produce some data with missing values">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-09-23T22:15:39.816Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Pandas]Handle missing data">
-<meta name="twitter:description" content="Missing data is a common problem in real data preprocessing, luckily pandas has done a lot to help us handle it. This article will show the codes on how to do it. ###Produce some data with missing val">
+<meta name="twitter:description" content="Missing data is a common problem in real data preprocessing, luckily pandas has done a lot to help us handle it. This article will show the codes on how to do it. Produce some data with missing values">
 
 
 
@@ -346,8 +346,8 @@
 
       
         <p>Missing data is a common problem in real data preprocessing, luckily pandas has done a lot to help us handle it. This article will show the codes on how to do it.</p>
-<p>###Produce some data with missing values.</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">5</span>, <span class="number">3</span>), index=[<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'h'</span>],</span><br><span class="line">                 columns=[<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>])</span><br><span class="line">df[<span class="string">'four'</span>]=<span class="string">'bar'</span></span><br><span class="line">df[<span class="string">'five'</span>]= df[<span class="string">'one'</span>] &gt; <span class="number">0</span></span><br><span class="line">df[<span class="string">'date'</span>]= pd.Timestamp(<span class="string">'2018-01-01'</span>)</span><br><span class="line">df2 = df.reindex([<span class="string">'a'</span>,<span class="string">'b'</span>, <span class="string">'c'</span>,<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>,<span class="string">'g'</span>, <span class="string">'h'</span>])</span><br><span class="line">df2</span><br></pre></td></tr></table></figure>
+<h3 id="Produce-some-data-with-missing-values"><a href="#Produce-some-data-with-missing-values" class="headerlink" title="Produce some data with missing values."></a>Produce some data with missing values.</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(np.random.randn(<span class="number">5</span>, <span class="number">3</span>), index=[<span class="string">'a'</span>, <span class="string">'c'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>, <span class="string">'h'</span>],</span><br><span class="line">                 columns=[<span class="string">'one'</span>, <span class="string">'two'</span>, <span class="string">'three'</span>])</span><br><span class="line">df[<span class="string">'four'</span>]=<span class="string">'bar'</span></span><br><span class="line">df[<span class="string">'five'</span>]= df[<span class="string">'one'</span>] &gt; <span class="number">0</span></span><br><span class="line">df[<span class="string">'date'</span>]= pd.Timestamp(<span class="string">'2018-01-01'</span>)</span><br><span class="line">df2 = df.reindex([<span class="string">'a'</span>,<span class="string">'b'</span>, <span class="string">'c'</span>,<span class="string">'d'</span>, <span class="string">'e'</span>, <span class="string">'f'</span>,<span class="string">'g'</span>, <span class="string">'h'</span>])</span><br><span class="line">df2</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -435,9 +435,11 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Notice that NaN is the default marker of missing number, text or boolean, NaT is for missing datetime</p>
 <h3 id="Detect-missing-value"><a href="#Detect-missing-value" class="headerlink" title="Detect missing value"></a>Detect missing value</h3><p>pandas provides two methods, isna() and notna()</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.isna()</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -525,7 +527,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.notna()</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -613,8 +617,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Cleaning"><a href="#Cleaning" class="headerlink" title="Cleaning"></a>Cleaning</h3><p>drop na value, dropna() has a parameter axis which indicates either colums(axis = 1) or rows(axis = 0) will be dropped, the default value of axis is 0</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.dropna()</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -675,8 +681,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Drop columns with missing data</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.dropna(axis = <span class="number">1</span>)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -710,9 +718,11 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>All columns are removed..</p>
 <h3 id="Fill-na"><a href="#Fill-na" class="headerlink" title="Fill na"></a>Fill na</h3><p>Na value can be easily filled by fillna()</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.fillna(<span class="number">0</span>)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -800,8 +810,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>We can also fill data with respect to their column property</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.fillna(value = &#123;<span class="string">'one'</span>: <span class="number">0</span>, <span class="string">'four'</span>: <span class="string">'missing'</span>, <span class="string">'five'</span>: <span class="keyword">False</span>, <span class="string">'date'</span>: pd.Timestamp(<span class="string">'2000-01-01'</span>)&#125;)</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -889,6 +901,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Remind that fillna() will not replace na in orignial dataframe, in other words, the df2 remains the same after all the above operation, If you want it to be permanantely changed, add parameter inplace = True like this.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df2.fillna(value = <span class="number">0</span>, inplace = <span class="keyword">True</span>)</span><br></pre></td></tr></table></figure>
 
@@ -1082,7 +1095,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Detect-missing-value"><span class="nav-number">1.</span> <span class="nav-text">Detect missing value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cleaning"><span class="nav-number">2.</span> <span class="nav-text">Cleaning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fill-na"><span class="nav-number">3.</span> <span class="nav-text">Fill na</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Produce-some-data-with-missing-values"><span class="nav-number">1.</span> <span class="nav-text">Produce some data with missing values.</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Detect-missing-value"><span class="nav-number">2.</span> <span class="nav-text">Detect missing value</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Cleaning"><span class="nav-number">3.</span> <span class="nav-text">Cleaning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Fill-na"><span class="nav-number">4.</span> <span class="nav-text">Fill na</span></a></li></ol></div>
             
 
           </div>
@@ -1253,7 +1266,7 @@
         s.src = 'https://tbenwang-com.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+      </script>
     
 
   
@@ -1298,6 +1311,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 

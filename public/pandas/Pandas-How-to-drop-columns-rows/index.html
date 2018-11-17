@@ -79,17 +79,17 @@
 
 
 
-<meta name="description" content="12345import pandas as pdimport numpy as npdf = pd.DataFrame(&amp;#123;&apos;A#&apos;:[1,2,3], &apos;B#&apos;:[4,5,6], &apos;C#&apos;:[7,8,9]&amp;#125;)df    A# ">
+<meta name="description" content="12345import pandas as pdimport numpy as npdf = pd.DataFrame(&amp;#123;&apos;A#&apos;:[1,2,3], &apos;B#&apos;:[4,5,6], &apos;C#&apos;:[7,8,9]&amp;#125;)df     A#">
 <meta property="og:type" content="article">
 <meta property="og:title" content="[Pandas]How to drop columns&#x2F;rows">
 <meta property="og:url" content="http://yoursite.com/pandas/Pandas-How-to-drop-columns-rows/index.html">
 <meta property="og:site_name" content="T.Ben&#39;s Notes">
-<meta property="og:description" content="12345import pandas as pdimport numpy as npdf = pd.DataFrame(&amp;#123;&apos;A#&apos;:[1,2,3], &apos;B#&apos;:[4,5,6], &apos;C#&apos;:[7,8,9]&amp;#125;)df    A# B# C#     1 4 7   2 5 8   3 6 9    Drop columns123df.drop([&apos;B#&apos;, &apos;C#&apos;], axis =">
+<meta property="og:description" content="12345import pandas as pdimport numpy as npdf = pd.DataFrame(&amp;#123;&apos;A#&apos;:[1,2,3], &apos;B#&apos;:[4,5,6], &apos;C#&apos;:[7,8,9]&amp;#125;)df     A# B# C#     1 4 7   2 5 8   3 6 9     Drop columns123df.drop([&apos;B#&apos;, &apos;C#&apos;], axis">
 <meta property="og:locale" content="en">
 <meta property="og:updated_time" content="2018-09-18T20:49:18.318Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="[Pandas]How to drop columns&#x2F;rows">
-<meta name="twitter:description" content="12345import pandas as pdimport numpy as npdf = pd.DataFrame(&amp;#123;&apos;A#&apos;:[1,2,3], &apos;B#&apos;:[4,5,6], &apos;C#&apos;:[7,8,9]&amp;#125;)df    A# B# C#     1 4 7   2 5 8   3 6 9    Drop columns123df.drop([&apos;B#&apos;, &apos;C#&apos;], axis =">
+<meta name="twitter:description" content="12345import pandas as pdimport numpy as npdf = pd.DataFrame(&amp;#123;&apos;A#&apos;:[1,2,3], &apos;B#&apos;:[4,5,6], &apos;C#&apos;:[7,8,9]&amp;#125;)df     A# B# C#     1 4 7   2 5 8   3 6 9     Drop columns123df.drop([&apos;B#&apos;, &apos;C#&apos;], axis">
 
 
 
@@ -346,6 +346,7 @@
 
       
         <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(&#123;<span class="string">'A#'</span>:[<span class="number">1</span>,<span class="number">2</span>,<span class="number">3</span>], <span class="string">'B#'</span>:[<span class="number">4</span>,<span class="number">5</span>,<span class="number">6</span>], <span class="string">'C#'</span>:[<span class="number">7</span>,<span class="number">8</span>,<span class="number">9</span>]&#125;)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -372,7 +373,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Drop-columns"><a href="#Drop-columns" class="headerlink" title="Drop columns"></a>Drop columns</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">df.drop([<span class="string">'B#'</span>, <span class="string">'C#'</span>], axis = <span class="number">1</span>)</span><br><span class="line"><span class="comment">#or</span></span><br><span class="line">df.drop(columns=[<span class="string">'B#'</span>, <span class="string">'C#'</span>])</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -391,7 +394,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Drop-rows"><a href="#Drop-rows" class="headerlink" title="Drop rows"></a>Drop rows</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.drop([<span class="number">0</span>,<span class="number">1</span>])</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -408,6 +413,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 
       
     </div>
@@ -770,7 +776,7 @@
         s.src = 'https://tbenwang-com.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+      </script>
     
 
   
@@ -815,6 +821,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 

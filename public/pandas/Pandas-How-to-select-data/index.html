@@ -348,6 +348,7 @@
         <p>This article shows the most common methods regarding data selection</p>
 <p>First, let’s create a dataframe.</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</span><br><span class="line"></span><br><span class="line">df = pd.DataFrame(np.random.rand(<span class="number">5</span>,<span class="number">4</span>), index = [<span class="string">'a'</span>, <span class="string">'b'</span>, <span class="string">'c'</span>, <span class="string">'d'</span>, <span class="string">'e'</span>], columns= [<span class="string">'A'</span>, <span class="string">'B'</span>, <span class="string">'C'</span>, <span class="string">'D'</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -396,7 +397,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Use-for-columns-selection"><a href="#Use-for-columns-selection" class="headerlink" title="Use [] for columns selection"></a>Use [] for columns selection</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[[<span class="string">'A'</span>, <span class="string">'B'</span>]]</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -433,7 +436,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Select-a-range"><a href="#Select-a-range" class="headerlink" title="Select a range"></a>Select a range</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="number">1</span>:<span class="number">3</span>] <span class="comment"># or df['b':'c']</span></span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -461,7 +466,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Use-loc"><a href="#Use-loc" class="headerlink" title="Use .loc"></a>Use .loc</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[<span class="string">'a'</span>:<span class="string">'c'</span>, [<span class="string">'A'</span>,<span class="string">'B'</span>]]</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -488,7 +495,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Select-all-columns"><a href="#Select-all-columns" class="headerlink" title="Select all columns"></a>Select all columns</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df.loc[<span class="string">'a'</span>:<span class="string">'c'</span>, :]</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -523,7 +532,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Select-with-boolean"><a href="#Select-with-boolean" class="headerlink" title="Select with boolean"></a>Select with boolean</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[df[<span class="string">'A'</span>]&gt;<span class="number">0.2</span>]</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -558,7 +569,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Select-with-callable-lambda"><a href="#Select-with-callable-lambda" class="headerlink" title="Select with callable(lambda)"></a>Select with callable(lambda)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">df[<span class="keyword">lambda</span> df: df[<span class="string">'A'</span>]&gt;<span class="number">0.2</span>]</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -593,6 +606,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 
       
     </div>
@@ -955,7 +969,7 @@
         s.src = 'https://tbenwang-com.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+      </script>
     
 
   
@@ -1000,6 +1014,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 

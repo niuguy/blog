@@ -5,9 +5,6 @@ categories: 'Machine Learning'
 mathjax: true
 ---
 
-
-# Backward propagation of Neural Network explained
-
 Backpropagation is the foundation of the deep neural network. Usually, we consider it to be kind of 'dark magic' we are not able to understand. However, it should not be the black box which we stay away. In this article, I will try to explain backpropagation as well as the whole neural network step by step in the original mathematical way.
 
 ## Outline
@@ -79,7 +76,7 @@ $$
 
 ### 3.1 Layer1:
 
-![image-20181108110049524](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/bp-02.png)
+![image-20181108110049524](https://raw.githubusercontent.com/niuguy/niuguy.github.io/master/pic/bp-02.png)
 
 ### Linear 
 

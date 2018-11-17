@@ -348,6 +348,7 @@
         <h3 id="Locate-the-file"><a href="#Locate-the-file" class="headerlink" title="Locate the file"></a>Locate the file</h3><p>There are two ways to locate the csv file, “absolute path” or “relative path”<br>e.g.<br>Absolute path:<br>“<code>/work/project/data/great.csv</code>“(Mac) or “<code>C:\work\project\data\great.csv</code>“(Windows)<br>Relative path:<br>“<code>data/greate.csv</code>“(Mac) or “<code>data\great.csv</code>“(Windows)</p>
 <h3 id="Read-with-pandas-read-csv"><a href="#Read-with-pandas-read-csv" class="headerlink" title="Read with pandas.read_csv()"></a>Read with pandas.read_csv()</h3><p>The result is a dataframe Object</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</span><br><span class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np </span><br><span class="line"></span><br><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -384,7 +385,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="No-infered-header"><a href="#No-infered-header" class="headerlink" title="No infered header"></a>No infered header</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, header= <span class="keyword">None</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -427,7 +430,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Filter-rows"><a href="#Filter-rows" class="headerlink" title="Filter rows"></a>Filter rows</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, skiprows=[<span class="number">3</span>,<span class="number">4</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -452,8 +457,10 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>lambda is also welcomed</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, skiprows=<span class="keyword">lambda</span> x:x/<span class="number">2</span>==<span class="number">1</span>)</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -478,7 +485,9 @@
 </tr>
 </tbody>
 </table>
+</div>
 <h3 id="Filter-columns-or-keep-wanted"><a href="#Filter-columns-or-keep-wanted" class="headerlink" title="Filter columns(or keep wanted)"></a>Filter columns(or keep wanted)</h3><figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">df = pd.read_csv(<span class="string">'data/great.csv'</span>, usecols=[<span class="string">'company'</span>])</span><br><span class="line">df</span><br></pre></td></tr></table></figure>
+<div class="table-container">
 <table>
 <thead>
 <tr>
@@ -500,6 +509,7 @@
 </tr>
 </tbody>
 </table>
+</div>
 <p>Other options refer <a href="https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html" target="_blank" rel="noopener">https://pandas.pydata.org/pandas-docs/stable/generated/pandas.read_csv.html</a></p>
 
       
@@ -863,7 +873,7 @@
         s.src = 'https://tbenwang-com.disqus.com/embed.js';
         s.setAttribute('data-timestamp', '' + +new Date());
         (d.head || d.body).appendChild(s);
-      </script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+      </script>
     
 
   
@@ -908,6 +918,28 @@
   
 
   
+  
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Config({
+        tex2jax: {
+          inlineMath: [ ['$','$'], ["\\(","\\)"]  ],
+          processEscapes: true,
+          skipTags: ['script', 'noscript', 'style', 'textarea', 'pre', 'code']
+        }
+      });
+    </script>
+
+    <script type="text/x-mathjax-config">
+      MathJax.Hub.Queue(function() {
+        var all = MathJax.Hub.getAllJax(), i;
+        for (i=0; i < all.length; i += 1) {
+          all[i].SourceElement().parentNode.className += ' has-jax';
+        }
+      });
+    </script>
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+  
+
 
   
 
