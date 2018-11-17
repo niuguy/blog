@@ -79,17 +79,19 @@
 
 
 
-<meta name="description" content="Machine Learning Backward propagation of Neural Network explained What is Attention and how to use Basics of words embedding   Pandas How-to [Pandas]How to sele">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Notes on Data Science">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="Stochastic Gradient decent is one of the fundamental algorithm in deep learning. It is used when we perform optimization of the cost function.Suppose the functi">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Stochastic gradient descent">
+<meta property="og:url" content="http://yoursite.com/Machine-Learning/Stochastic-gradient-descent/index.html">
 <meta property="og:site_name" content="T.Ben&#39;s Notes">
-<meta property="og:description" content="Machine Learning Backward propagation of Neural Network explained What is Attention and how to use Basics of words embedding   Pandas How-to [Pandas]How to select data [Pandas]How to import CSV [Panda">
+<meta property="og:description" content="Stochastic Gradient decent is one of the fundamental algorithm in deep learning. It is used when we perform optimization of the cost function.Suppose the function is  $ f(x) $    As what illustrated a">
 <meta property="og:locale" content="en">
-<meta property="og:updated_time" content="2018-11-08T12:17:46.444Z">
+<meta property="og:image" content="https://raw.githubusercontent.com/niuguy/blog/master/public/pic/sgd-01.png">
+<meta property="og:updated_time" content="2018-11-17T17:26:25.321Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Notes on Data Science">
-<meta name="twitter:description" content="Machine Learning Backward propagation of Neural Network explained What is Attention and how to use Basics of words embedding   Pandas How-to [Pandas]How to select data [Pandas]How to import CSV [Panda">
+<meta name="twitter:title" content="Stochastic gradient descent">
+<meta name="twitter:description" content="Stochastic Gradient decent is one of the fundamental algorithm in deep learning. It is used when we perform optimization of the cost function.Suppose the function is  $ f(x) $    As what illustrated a">
+<meta name="twitter:image" content="https://raw.githubusercontent.com/niuguy/blog/master/public/pic/sgd-01.png">
 
 
 
@@ -119,13 +121,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/Machine-Learning/Stochastic-gradient-descent/"/>
 
 
 
 
 
-  <title>Notes on Data Science | T.Ben's Notes</title>
+  <title>Stochastic gradient descent | T.Ben's Notes</title>
   
 
 
@@ -233,55 +235,187 @@
 
   <div id="posts" class="posts-expand">
     
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
+  
+  
+  
+  <div class="post-block">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/Machine-Learning/Stochastic-gradient-descent/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="T.Ben Wang">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/avatar.gif">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="T.Ben's Notes">
+    </span>
+
     
-    
-    <div class="post-block page">
       <header class="post-header">
 
-	<h1 class="post-title" itemprop="name headline">Notes on Data Science</h1>
-
-
-
-</header>
-
-      
-      
-      
-      <div class="post-body">
         
         
-          <h3 id="Machine-Learning"><a href="#Machine-Learning" class="headerlink" title="Machine Learning"></a>Machine Learning</h3><ul>
-<li><a href="/Machine-Learning/Backward-propagation-of-Neural-Network-explained/">Backward propagation of Neural Network explained</a></li>
-<li><a href="/Machine-Learning/What-is-Attention-and-how-to-use/">What is Attention and how to use</a></li>
-<li><a href="/Machine-Learning/Basics-of-words-embedding/">Basics of words embedding</a></li>
-</ul>
-<hr>
-<h3 id="Pandas-How-to"><a href="#Pandas-How-to" class="headerlink" title="Pandas How-to"></a>Pandas How-to</h3><ul>
-<li><a href="/pandas/Pandas-How-to-select-data/">[Pandas]How to select data</a></li>
-<li><a href="/pandas/Pandas-How-to-import-CSV/">[Pandas]How to import CSV</a></li>
-<li><a href="/pandas/Pandas-How-to-rename-columns/">[Pandas]How to rename columns</a></li>
-<li><a href="/pandas/Pandas-How-to-drop-columns-rows/">[Pandas]How to drop columns rows</a></li>
-<li><a href="/pandas/Pandas-Handle-missing-data/">[Pandas]Handle missing data</a></li>
-<li><a href="/pandas/Pandas-How-to-import-from-Sql-Server/">[Pandas]How to import from Sql Server</a></li>
-<li><a href="/pandas/Pandas-How-to-list-all-columns/">[Pandas]How to list all columns</a></li>
-<li><a href="/pandas/Pandas-How-to-calculate-datetime-difference-in-years/">[Pandas]How to calculate datetime difference in years</a></li>
-<li><a href="/pandas/Pandas-How-to-plot-counts-of-each-value/">[Pandas]How to plot counts of each value</a></li>
-</ul>
-<hr>
-<h3 id="Tensorflow-How-to"><a href="#Tensorflow-How-to" class="headerlink" title="Tensorflow How-to"></a>Tensorflow How-to</h3><ul>
-<li><a href="/tensorflow/Tensorflow101/">Tensorflow101</a></li>
-<li><a href="/tensorflow/What-is-tf-data-and-how-to-use/">What is tf.data and how to use</a></li>
-</ul>
-
+          <h1 class="post-title" itemprop="name headline">Stochastic gradient descent</h1>
         
-      </div>
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Posted on</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2018-11-08T11:14:28+00:00">
+                2018-11-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">In</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/Machine-Learning/Stochastic-gradient-descent/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count disqus-comment-count"
+                        data-disqus-identifier="/Machine-Learning/Stochastic-gradient-descent/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    
+    
+    
+    <div class="post-body" itemprop="articleBody">
+
       
       
+
+      
+        <p>Stochastic Gradient decent is one of the fundamental algorithm in deep learning. It is used when we perform optimization of the cost function.Suppose the function is  $ f(x) $  </p>
+<p><img src="https://raw.githubusercontent.com/niuguy/blog/master/public/pic/sgd-01.png" alt="sgd"></p>
+<p>As what illustrated above, we want to approach the minimum value of $f(x)$ which is the point C. If we are now at point A, the derivation of A is $f’(x)<0$ ,="" so="" we="" need="" to="" go="" right="" down="" which="" is="" the="" opposite="" direction="" of="" $f'(x)$="" .="" if="" stand="" at="" b,="" derivation="" a="" $f'(x)="">0$  , we should go left down which is also the opposite direction of $f’(x)$ .  </0$></p>
+<p>According to the optimization strategy , we should update the parameter like this:</p>
+<script type="math/tex; mode=display">
+x = x - \eta f'(x)</script><p>$\eta$ is so-called the learning rate, it determines the size of steps we take to reach a minimum value of $f(x)$</p>
+<h2 id="Batch-Gradient"><a href="#Batch-Gradient" class="headerlink" title="Batch Gradient"></a>Batch Gradient</h2><p>Follow the rules of gradient descent, when we perform one update of parameters the intuitive strategy is to calculate the gradients for all the examples in the dataset and sum them up, this computation process is also called batch gradient. </p>
+<p>The pseudocode described above looks like this.</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(epoches):</span><br><span class="line">    param_grad = calculate_gradient(loss_function, [examples]) </span><br><span class="line">    param = param - learning_rate * params_grad</span><br></pre></td></tr></table></figure>
+<p> For each update we need to walk through all these examples,  if there are millions of them,  the computation cost would be a problem, let alone there usually are several epochs of updates.</p>
+<h2 id="Stochastic-Gradient"><a href="#Stochastic-Gradient" class="headerlink" title="Stochastic Gradient"></a>Stochastic Gradient</h2><p>The inefficiency of the batch gradient leads to another strategy that is widely used in deep learning, which is stochastic gradient descent(SGD).</p>
+<p>Instead of updating the params based on the gradients of all examples, SGD  updates the param after computing the gradient of one example,  what particular is the dataset should be shuffled in each epoch.  </p>
+<p>The poseudocode of SGC looks like this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(epochs): </span><br><span class="line">    np.random.shuffle(data) </span><br><span class="line">    <span class="keyword">for</span> example <span class="keyword">in</span> data:</span><br><span class="line">        param_grad = calculate_gradient(loss_function , example) </span><br><span class="line">        param = param - learning_rate * param_grad</span><br></pre></td></tr></table></figure>
+<p>The algorithm is not as complicated as its name implies. Actually, it’s too simple that we may doubt about its effectiveness in convergence. However, it has been shown that when we slowly decrease the learning rate, SGD shows the same convergence behavior as batch gradient descent, the convergence of stochastic gradient descent has been analyzed using the theories of convex minimization and of stochastic approximation. </p>
+<p>A simple improvement of SGD is to perform an update for every mini-batch examples, which is called mini-batch gradient. It is a compromise between batch gradient and SGD and is proved effective in practices. The code looks like this:</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">for</span> i <span class="keyword">in</span> range(epochs): </span><br><span class="line">    np.random.shuffle(data) </span><br><span class="line">    <span class="keyword">for</span> batch <span class="keyword">in</span> batches(data, batch_size = <span class="number">50</span>):</span><br><span class="line">        param_grad = calculate_gradient(loss_function , batch) </span><br><span class="line">        param = param - learning_rate * param_grad</span><br></pre></td></tr></table></figure>
+
       
     </div>
     
     
     
+
+    
+
+    
+
+    
+
+    <footer class="post-footer">
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/Machine-Learning/Backward-propagation-of-Neural-Network-explained/" rel="next" title="Backward propagation of Neural Network explained">
+                <i class="fa fa-chevron-left"></i> Backward propagation of Neural Network explained
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </div>
+  
+  
+  
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
   </div>
 
 
@@ -349,7 +483,7 @@
               
                 <a href="/archives">
               
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">16</span>
                   <span class="site-state-item-name">posts</span>
                 </a>
               </div>
@@ -417,7 +551,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#Machine-Learning"><span class="nav-number">1.</span> <span class="nav-text">Machine Learning</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Pandas-How-to"><span class="nav-number">2.</span> <span class="nav-text">Pandas How-to</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Tensorflow-How-to"><span class="nav-number">3.</span> <span class="nav-text">Tensorflow How-to</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#Batch-Gradient"><span class="nav-number">1.</span> <span class="nav-text">Batch Gradient</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#Stochastic-Gradient"><span class="nav-number">2.</span> <span class="nav-text">Stochastic Gradient</span></a></li></ol></div>
             
 
           </div>
@@ -580,9 +714,9 @@
     
       <script type="text/javascript">
         var disqus_config = function () {
-          this.page.url = 'http://yoursite.com/index.html';
-          this.page.identifier = 'index.html';
-          this.page.title = 'Notes on Data Science';
+          this.page.url = 'http://yoursite.com/Machine-Learning/Stochastic-gradient-descent/';
+          this.page.identifier = '/Machine-Learning/Stochastic-gradient-descent/';
+          this.page.title = 'Stochastic gradient descent';
         };
         var d = document, s = d.createElement('script');
         s.src = 'https://tbenwang-com.disqus.com/embed.js';
@@ -652,7 +786,24 @@
         }
       });
     </script>
-    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- hexo-inject:end -->
+    <script type="text/javascript" src="//cdn.bootcss.com/mathjax/2.7.1/latest.js?config=TeX-AMS-MML_HTMLorMML"></script><!-- hexo-inject:begin --><!-- Begin: Injected MathJax -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config("");
+</script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Queue(function() {
+    var all = MathJax.Hub.getAllJax(), i;
+    for(i=0; i < all.length; i += 1) {
+      all[i].SourceElement().parentNode.className += ' has-jax';
+    }
+  });
+</script>
+
+<script type="text/javascript" src="custom_mathjax_source">
+</script>
+<!-- End: Injected MathJax -->
+<!-- hexo-inject:end -->
   
 
 
