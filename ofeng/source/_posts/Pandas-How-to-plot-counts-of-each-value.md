@@ -2,7 +2,7 @@
 title: '[Pandas]How to plot counts of each value'
 date: 2018-10-22 20:40:47
 categories: 'Data&AI'
-tags: 'pandas'
+tags: 'Pandas'
 ---
 
 1. With pandas build in function(actually matplotlib)

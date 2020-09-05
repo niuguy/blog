@@ -2,7 +2,7 @@
 title: '[Pandas]How to rename columns'
 date: 2018-09-17 22:11:55
 categories: 'Data&AI'
-tags: 'pandas'
+tags: 'Pandas'
 ---
 
 ```python

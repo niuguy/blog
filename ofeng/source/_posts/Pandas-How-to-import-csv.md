@@ -2,7 +2,7 @@
 title: '[Pandas]How to import CSV'
 date: 2018-09-16 16:30:37
 categories: 'Data&AI'
-tags: 'pandas'
+tags: 'Pandas'
 ---
 
 

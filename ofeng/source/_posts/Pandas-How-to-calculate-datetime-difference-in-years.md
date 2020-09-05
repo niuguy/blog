@@ -2,7 +2,7 @@
 title: '[Pandas]How to calculate datetime difference in years'
 date: 2018-10-22 16:43:34
 categories: 'Data&AI'
-tags: 'pandas'
+tags: 'Pandas'
 ---
 
 Suppose you got a person's regist time in one column and his birth date in another column, now you need to calculate his age when he did the registration. There are two ways to reach this result.

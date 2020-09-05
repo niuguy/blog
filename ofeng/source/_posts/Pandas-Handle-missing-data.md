@@ -2,7 +2,7 @@
 title: '[Pandas]Handle missing data'
 date: 2018-09-23 20:40:37
 categories: 'Data&AI'
-tags: 'pandas'
+tags: 'Pandas'
 ---
 
 Missing data is a common problem in real data preprocessing, luckily pandas has done a lot to help us handle it. This article will show the codes on how to do it.

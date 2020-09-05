@@ -1,6 +1,6 @@
 ---
 title: What you need to know for memory-leaks troubleshooting(排查内存泄漏你需要知道的套路)
-date: 2020-08-25 17:12:06
+date: 2017-08-25 17:12:06
 tags: [Java]
 categories: [Backend]
 ---
@@ -50,11 +50,11 @@ PS：如果命令有任何不清楚，男人(man)是你的好朋友：）
 
 * 使用MAT导入上一步生成的dump文件，分析之后你会看到类似这样一张图
 
-![1.png](http://upload-images.jianshu.io/upload_images/1886630-f7c22cbb129aee79.png)
+![1.png](https://user-images.githubusercontent.com/1400357/91207332-7fe5bc00-e700-11ea-8f32-7959f1bec32b.png)
 
 从这里为入口，可以查看哪些对象占用内存较大，内存泄漏的可疑点在哪里，比如这个case, 点到Leak Suspects这个链接可以看到
 
-![2.png](http://upload-images.jianshu.io/upload_images/1886630-9211a81431320d97.png?imageMogr2/auto-orient/strip%7CimageView2/2/w/1240)
+![2.png](https://user-images.githubusercontent.com/1400357/91207479-b7546880-e700-11ea-826b-17a0844ca778.png)
 
 这是个比较直观的问题，HashMapEntry对象占用了超过99%的内存空间，可以直接看业务代码哪里HashMap使用出了问题。
 这是MAT比较简单的应用，其他高级用法可以看MAT官方文档，或这篇文章 [Java程序内存分析：使用mat工具分析内存占用 - 孤剑 - 博客园](http://www.cnblogs.com/AloneSword/p/3821569.html)

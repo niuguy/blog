@@ -2,7 +2,7 @@
 title: '[Pandas] How to import from Sql Server'
 date: 2018-10-18 20:08:25
 categories: 'Data&AI'
-tags: 'pandas'
+tags: 'Pandas'
 ---
 
 We need to rely on pyodbc, the sample code is as belows.

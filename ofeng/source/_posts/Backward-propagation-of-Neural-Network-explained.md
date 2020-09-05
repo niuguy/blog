@@ -21,7 +21,7 @@ Backpropagation is the foundation of the deep neural network. Usually, we consid
 
 This neural network I'm going to explain is a 2-Layer neural network. The first layer is Linear + Sigmoid, and the second Layer is Linear + Softmax. 
 
-![image-20181107215309162](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/bp-01.png)
+![image-20181107215309162](https://user-images.githubusercontent.com/1400357/91705857-754e7b00-eb75-11ea-987e-c3e1d89d3760.png)
 
 The architecture in the math formula
 $$
@@ -77,7 +77,7 @@ $$
 
 ### 3.1 Layer1:
 
-![image-20181108110049524](https://raw.githubusercontent.com/niuguy/niuguy.github.io/master/pic/bp-02.png)
+![image-20181108110049524](https://user-images.githubusercontent.com/1400357/91705895-83040080-eb75-11ea-8019-60a7b3b4312f.png)
 
 ### Linear 
 
@@ -122,7 +122,7 @@ $$
 
 ### 3.2 Layer2:
 
-![image-20181108110231696](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/bp-03.png)
+![image-20181108110231696](https://user-images.githubusercontent.com/1400357/91705899-87301e00-eb75-11ea-980f-4baa434e2bfd.png)
 
 ### Linear
 
@@ -233,7 +233,7 @@ $$
 
 ####Weight derivatives with respect to the error
 
-![image-20181107220124773](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/bp-04.png)
+![image-20181107220124773](https://user-images.githubusercontent.com/1400357/91705901-88614b00-eb75-11ea-9ccb-f120ad712610.png)
 
 Consider W<sub>ho</sub> , we want to know how W<sub>ho</sub> will affect the total error, aka the value of 
 $$
@@ -355,7 +355,7 @@ That is the updated weight of Layer1-Layer2. The update of Input-Layer weights i
 
 ####5.2.2 Layer0(Input Layer) - Layer1 
 
-![image-20181107222954838](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/bp-05.png)
+![image-20181107222954838](https://user-images.githubusercontent.com/1400357/91705906-8a2b0e80-eb75-11ea-8a0e-678a2c3ab110.png)
 
 Follow the path of the previous chapter
 

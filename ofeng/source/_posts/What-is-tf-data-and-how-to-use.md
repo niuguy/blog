@@ -1,7 +1,7 @@
 ---
 title: What is tf.data and how to use
 date: 2018-09-26 20:30:31
-tags: 'tensorflow'
+tags: 'Tensorflow'
 categories: 'Data&AI'
 ---
 

@@ -1,7 +1,7 @@
 ---
 title: Tensorflow101
 date: 2018-07-10 22:25:42
-tags: "tensorflow"
+tags: "Tensorflow"
 categories: "Data&AI" 
 ---
 
@@ -23,7 +23,7 @@ Graph is a fundamental concept in Tensorflow. Take ReLU computation as an exampl
 
 In the view of Tensorflow, the function looks like this
 
-![relu_graph](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_01.png)
+![relu_graph](https://user-images.githubusercontent.com/1400357/91706504-64ead000-eb76-11ea-851b-493b206b6543.png)
 
 > Nodes  
 
@@ -86,10 +86,10 @@ It would be interesting to see what happened during the running time. We can try
 
 ## TensorBoard Result
 
-![tensorboard](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_02.png)
+![tensorboard](https://user-images.githubusercontent.com/1400357/91706508-661bfd00-eb76-11ea-8939-adc1cf806f8f.png)
 
 
-![tensorboard_relu](https://raw.githubusercontent.com/niuguy/blog/master/public/pic/101_03.png)
+![tensorboard_relu](https://user-images.githubusercontent.com/1400357/91706513-674d2a00-eb76-11ea-9b5f-932600175c6c.png)
 
 The Main Graph clearly shows how the tensor flows through the graph. In a complex machine learning program, the printed diagram is a convenient tool to increase the confidence of the result.
 
