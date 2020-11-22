@@ -2,7 +2,7 @@
 title: Kaggle竞赛指南 —— 探索性数据分析
 date: 2019-11-02 07:26:52
 tags: [Kaggle]
-categories: [Data&AI]
+categories: [ML]
 ---
 
 之前说到在模型选择方面没有银弹，那么如何确定最合适的模型提出假设，探索性数据分析（EDA）是一个必不可少的环节。

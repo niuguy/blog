@@ -1,7 +1,7 @@
 ---
 title: '[Pandas]How to select data'
 date: 2018-09-20 21:49:51
-categories: 'Data&AI'
+categories: 'ML'
 tags: 'Pandas'
 ---
 

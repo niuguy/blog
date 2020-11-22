@@ -1,7 +1,7 @@
 ---
 title: Stochastic gradient descent 
 date: 2018-11-08 11:14:28
-categories: 'Data&AI'
+categories: 'ML'
 tags: 'Algorithm'
 mathjax: true
 ---

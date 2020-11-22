@@ -1,7 +1,7 @@
 ---
 title: '[Pandas]How to calculate datetime difference in years'
 date: 2018-10-22 16:43:34
-categories: 'Data&AI'
+categories: 'ML'
 tags: 'Pandas'
 ---
 

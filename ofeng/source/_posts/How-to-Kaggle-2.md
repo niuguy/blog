@@ -2,7 +2,7 @@
 title: Kaggle竞赛指南 —— 主流机器学习算法
 date: 2019-08-27 18:08:51
 tags: [Kaggle]
-categories: [Data&AI]
+categories: [ML]
 ---
 ![](https://user-images.githubusercontent.com/1400357/91473128-58bdf480-e890-11ea-9db0-7339c430e9e0.png)
 

@@ -2,7 +2,7 @@
 title: What is tf.data and how to use
 date: 2018-09-26 20:30:31
 tags: 'Tensorflow'
-categories: 'Data&AI'
+categories: 'ML'
 ---
 
 Tf.data is a high level API provided by tensorflow, it performs as a pipeline for complex input and output. The core data structure of tf.data is Dataset which represents a potentially large set of elements. 

@@ -3,11 +3,11 @@
 ## Source: https://github.com/hexojs/hexo/
 
 # Site
-title: Hexo
+title: 峰记小馆
 subtitle: ''
 description: ''
 keywords:
-author: John Doe
+author: Feng
 language: en
 timezone: ''
 
@@ -110,7 +110,7 @@ math:
 # Extensions
 ## Plugins: https://hexo.io/plugins/
 ## Themes: https://hexo.io/themes/
-theme: pure
+theme: yilia
 
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
@@ -135,3 +135,22 @@ markdown_it_plus:
     - plugin:
         name: markdown-it-mark
         enable: true  
+
+jsonContent:
+  meta: false
+  pages: false
+  posts:
+    title: true
+    date: true
+    path: true
+    text: false
+    raw: false
+    content: false
+    slug: false
+    updated: false
+    comments: false
+    link: false
+    permalink: false
+    excerpt: false
+    categories: false
+    tags: true

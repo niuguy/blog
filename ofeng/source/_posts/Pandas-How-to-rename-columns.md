@@ -1,7 +1,7 @@
 ---
 title: '[Pandas]How to rename columns'
 date: 2018-09-17 22:11:55
-categories: 'Data&AI'
+categories: 'ML'
 tags: 'Pandas'
 ---
 

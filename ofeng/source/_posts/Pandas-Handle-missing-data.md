@@ -1,7 +1,7 @@
 ---
 title: '[Pandas]Handle missing data'
 date: 2018-09-23 20:40:37
-categories: 'Data&AI'
+categories: 'ML'
 tags: 'Pandas'
 ---
 

@@ -2,7 +2,7 @@
 title: The guide to predictive data analysis on MIMIC
 date: 2020-05-30 08:40:46
 tags: [Health]
-categories: [Data&AI]
+categories: [ML]
 ---
 
 Below is my teaching materials when I served as assistant teacher on Digital Health and data analysis at Reading University. The dataset I used for this course is [MIMIC](https://mimic.physionet.org). If you are interested in healthcare data analysis, this might be what you want to check.

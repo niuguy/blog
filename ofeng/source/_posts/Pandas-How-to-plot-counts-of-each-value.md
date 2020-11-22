@@ -1,7 +1,7 @@
 ---
 title: '[Pandas]How to plot counts of each value'
 date: 2018-10-22 20:40:47
-categories: 'Data&AI'
+categories: 'ML'
 tags: 'Pandas'
 ---
 

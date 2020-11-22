@@ -1,7 +1,7 @@
 ---
 title: '[Pandas] How to import from Sql Server'
 date: 2018-10-18 20:08:25
-categories: 'Data&AI'
+categories: 'ML'
 tags: 'Pandas'
 ---
 

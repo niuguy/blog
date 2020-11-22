@@ -2,7 +2,7 @@
 title: Tensorflow101
 date: 2018-07-10 22:25:42
 tags: "Tensorflow"
-categories: "Data&AI" 
+categories: "ML" 
 ---
 
 

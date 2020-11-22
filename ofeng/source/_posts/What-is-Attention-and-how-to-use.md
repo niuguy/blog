@@ -2,7 +2,7 @@
 title: What is Attention and how to use
 date: 2018-09-20 10:06:45
 tags: 'Algorithm'
-categories: 'Data&AI'
+categories: 'ML'
 
 ---
 

@@ -2,7 +2,7 @@
 title: Kaggle竞赛指南 —— 简介
 date: 2019-08-26 22:06:54
 tags: [Kaggle]
-categories: [Data&AI]
+categories: [ML]
 ---
 
 
