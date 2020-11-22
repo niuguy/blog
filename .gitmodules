@@ -1,0 +1,3 @@
+[submodule "ofeng/themes/yilia"]
+	path = ofeng/themes/yilia
+	url = https://github.com/niuguy/hexo-theme-yilia.git

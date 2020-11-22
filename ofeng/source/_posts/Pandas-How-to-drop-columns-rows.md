@@ -1,7 +1,7 @@
 ---
 title: '[Pandas]How to drop columns/rows'
 date: 2018-09-18 21:39:25
-categories: 'Data&AI'
+categories: 'ML'
 tags: 'Pandas'
 ---
 

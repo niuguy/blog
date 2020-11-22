@@ -1,7 +1,7 @@
 ---
 title: Basics of words embedding
 date: 2018-10-01 11:14:28
-categories: 'Data&AI'
+categories: 'ML'
 tags: 'Algorithm'
 ---
 
