@@ -10,6 +10,8 @@ categories: 'ML'
 
 Attention or Bahdanau Attention is getting more and more interest in Neural Machine Translation(NMT)  and other sequence prediction research, in this article I will briefly introduce what is Attention mechanism, why important it is and how do we use it(in Tensorflow)
 
+<!--more-->
+
 ### Why Attention
 
 Attention is a mechanism derived from the seq-seq model which started the era of NMT,  in this [paper](https://arxiv.org/pdf/1409.3215.pdf) Sutskever proposed a novel RNN network called encode-decode network to tackle seq-seq prediction problems such as translation.

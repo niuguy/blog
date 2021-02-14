@@ -8,7 +8,7 @@ tags: 'Algorithm'
 ### Why embedding
 
 Natural language processing systems traditionally treat words as discrete atomic symbols, and this may lead to some obstacles in word preprocessing:
-
+<!--more-->
 1. These encodings provide no useful information regarding the **relationships** that may exist between the individual symbols.
 2. Discrete ids furthermore lead to **data sparsity**. We may need more data to train statistical models successfully.
 

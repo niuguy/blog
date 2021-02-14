@@ -14,6 +14,8 @@ categories: [Backend]
 ## 3. 将线程id转换为16进制
 `printf “%x\n” #线程id#`
 
+<!--more-->
+
 ## 4. 使用stack查找相应线程栈信息
 `jstack -l #进程id#| grep #16进制线程id#`
 

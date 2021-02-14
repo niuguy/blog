@@ -7,6 +7,8 @@ tags: 'Pandas'
 
 Missing data is a common problem in real data preprocessing, luckily pandas has done a lot to help us handle it. This article will show the codes on how to do it.
 
+<!--more-->
+
 ###Produce some data with missing values.
 
 ```python

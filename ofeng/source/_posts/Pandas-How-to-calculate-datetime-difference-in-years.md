@@ -7,6 +7,8 @@ tags: 'Pandas'
 
 Suppose you got a person's regist time in one column and his birth date in another column, now you need to calculate his age when he did the registration. There are two ways to reach this result.
 
+<!--more-->
+
 1. With the help of relativedelta
 
 ```Python

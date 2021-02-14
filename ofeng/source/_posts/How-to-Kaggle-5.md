@@ -6,6 +6,7 @@ categories: [ML]
 ---
 
 顶级的Kaggler都有自己的一套问题解决流程，熟悉这些套路能极大提高求解问题的效率。今天我们来看一下目前Kaggle总排名第四的[kazanova](https://www.kaggle.com/kazanova)总结出来的一套解题套路。
+<!--more-->
 具体如下：
 
 ![](https://user-images.githubusercontent.com/1400357/91630580-595aa600-e9ca-11ea-9dbb-aeacfebf956c.png)

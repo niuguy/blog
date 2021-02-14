@@ -8,6 +8,7 @@ categories: [ML]
 
 
 目前竞赛中（其实也是常规实际问题）的主流算法有四大门类：  Linear, Tree-based, kNN 以及 Neural Networks 下面分别简单介绍一下：
+<!--more-->
 
 ## Linear相关模型
 

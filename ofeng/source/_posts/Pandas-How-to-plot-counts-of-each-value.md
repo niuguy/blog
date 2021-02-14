@@ -5,6 +5,8 @@ categories: 'ML'
 tags: 'Pandas'
 ---
 
+<!--more-->
+
 1. With pandas build in function(actually matplotlib)
 
 ```Python

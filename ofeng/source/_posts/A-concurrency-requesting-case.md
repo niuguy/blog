@@ -6,6 +6,7 @@ categories: [Backend]
 ---
 
 有些场景下，你可能要检查代码有没有并发问题，验证幂等或者做一下简单的压力测试， 这时候需要写一个并发请求的程序，那么怎么做呢？
+<!--more-->
 先上代码
 ```
         final long time_start = System.currentTimeMillis();

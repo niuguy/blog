@@ -7,6 +7,8 @@ categories: 'ML'
 
 Tf.data is a high level API provided by tensorflow, it performs as a pipeline for complex input and output. The core data structure of tf.data is Dataset which represents a potentially large set of elements. 
 
+<!--more-->
+
 Here is the defination of Dataset given by tensorflow.org
 
 > A `Dataset` can be used to represent an input pipeline as a collection of elements (nested structures of tensors) and a "logical plan" of transformations that act on those elements.

@@ -8,6 +8,8 @@ categories: "ML"
 
 Tensorflow is a high performance numerical computation software library, it is mostly known for its strong support for machine learning and deep learning.
 
+<!--more-->
+
 ### How to Install
 
 If you have ‘pip’, everything is simple

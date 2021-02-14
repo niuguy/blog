@@ -7,6 +7,8 @@ tags: 'Pandas'
 
 This article shows the most common methods regarding data selection
 
+<!--more-->
+
 First, let's create a dataframe.
 
 ```python

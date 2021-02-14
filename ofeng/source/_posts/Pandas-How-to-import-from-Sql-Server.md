@@ -7,6 +7,8 @@ tags: 'Pandas'
 
 We need to rely on pyodbc, the sample code is as belows.
 
+<!--more-->
+
 ```python
 import pyodbc
 cnxn = pyodbc.connect('DRIVER={ODBC Driver 13 for SQL Server};SERVER=SQLSERVER2017;DATABASE=Adventureworks;Trusted_Connection=yes')

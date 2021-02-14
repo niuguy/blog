@@ -7,6 +7,8 @@ categories: [ML]
 
 Below is my teaching materials when I served as assistant teacher on Digital Health and data analysis at Reading University. The dataset I used for this course is [MIMIC](https://mimic.physionet.org). If you are interested in healthcare data analysis, this might be what you want to check.
 
+<!--more-->
+
 
 #### [1. SQL basics](https://github.com/niuguy/digithealthcourse/blob/master/%5B000%5DSql_basics.ipynb)
 

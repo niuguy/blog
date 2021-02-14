@@ -6,6 +6,8 @@ tags: 'Pandas'
 ---
 
 
+<!--more-->
+
 ### Locate the file
 There are two ways to locate the csv file, "absolute path" or "relative path"
 e.g.

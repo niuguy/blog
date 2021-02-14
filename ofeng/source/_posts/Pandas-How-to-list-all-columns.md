@@ -5,6 +5,8 @@ categories: 'ML'
 tags: 'Pandas'
 ---
 
+<!--more-->
+
 ```python
 list(dataframe.columns.values)
 ```

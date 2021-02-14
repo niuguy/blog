@@ -7,6 +7,8 @@ categories: [Backend]
 
 最近由于工作需要用到API网关做请求转发用，挑了目前人气较高的两款 Kong 和Goku 对比研究一下。
 
+<!--more-->
+
 ## 基本情况
 
 Kong( [https://github.com/niuguy/kong](https://github.com/niuguy/kong) )基于Lua 构建，始创于2009年，目前在Github拥有26.9K Goku([https://github.com/eolinker/goku-api-gateway](https://github.com/eolinker/goku-api-gateway)) 基于Go构建，始创于2017年，目前在Github 有2.1K获赞。 
